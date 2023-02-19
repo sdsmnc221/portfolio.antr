@@ -1,0 +1,82 @@
+@import 'reset';
+@import 'normalize';
+@import 'transitions';
+
+*,
+body {
+  box-sizing: border-box;
+  font-family: $apris;
+  font-size: $font-size-regular;
+  color: $white;
+}
+
+.tp-dfwv {
+  z-index: 100;
+}
+
+body {
+  overflow: hidden;
+}
+
+em {
+  font-family: $goudy !important;
+}
+
+#app {
+  button {
+      position: relative;
+      appearance: none;
+      border: 0;
+      background: none;
+      text-transform: uppercase;
+      font-size: rem(15px);
+      letter-spacing: rem(2.5px);
+      cursor: pointer;
+
+      @media #{$mq-mobile} {
+        font-size: rem(14px);
+    }
+
+    &.secondary {
+      p {
+        position: relative;
+
+        &::before,
+        &::after {
+          content: "";
+          background-image: url('/backgrounds/button-secondary.svg');
+          width: rem(10px);
+          height: 80%;
+          display: block;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-repeat: no-repeat;
+          background-size: contain;
+          transition: all 0.4s ease-in-out;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            &::before {
+              transform: translate3d(rem(3px), -50%, 0) scaleX(1);
+            }
+
+            &::after {
+              transform: translate3d(rem(-3px), -50%, 0) scaleX(-1);
+            }
+          }
+        }
+
+        &::before {
+          left: rem(-12px);
+        }
+
+        &::after {
+          right: rem(-8px);
+          transform: translateY(-50%) scaleX(-1);
+        }
+      }
+    }
+  }
+}

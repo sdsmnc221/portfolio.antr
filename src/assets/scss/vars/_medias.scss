@@ -1,0 +1,12 @@
+$mq-extra-small: '(min-width: 23.4375em)';
+$mq-small: '(min-width: 48em)';
+$mq-medium: '(min-width: 64em)';
+$mq-large: '(min-width: 90em)';
+$mq-extra-large: '(min-width: 105em)';
+$mq-small-mobile: '(max-width: #{(23.4375em - 0.0625em)})';
+$mq-mobile: '(max-width: #{(48em - 0.0625em)})';
+$mq-mobile-tablet: '(max-width: #{(64em - 0.0625em)})';
+$mq-tablet: '(min-width: 48em) and (max-width: #{(64em - 0.0625em)})';
+$mq-small-desktop: '(min-width: 64em) and (max-width: #{(83em - 0.0625em)})';
+$mq-medium-desktop: '(min-width: 64.01em) and (max-width: #{(83em - 0.0625em)})';
+$mq-fluid-desktop: '(min-width: 64em) and (max-width: #{(90em - 0.0625em)})';
