@@ -197,6 +197,11 @@ onMounted(() => {
 
             gsap.set(row.previewItem.DOM.button, { opacity: 0 });
 
+            gsap.set([row.previewItem.DOM.content, row.previewItem.DOM.video, row.previewItem.DOM.hashtags], {
+              opacity: 0,
+              scale: 0,
+            });
+
             closeCtrl.classList.add('preview__close--show');
           },
           onComplete: () => (isAnimating = false),
