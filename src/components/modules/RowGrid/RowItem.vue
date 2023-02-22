@@ -60,7 +60,7 @@ const props = defineProps({
     &--year {
       position: absolute;
       top: 50%;
-      right: 10vw;
+      right: 4vw;
       transform: translateY(-50%);
     }
     &--images {
