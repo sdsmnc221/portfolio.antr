@@ -1,82 +1,96 @@
 @import 'reset';
 @import 'normalize';
 @import 'transitions';
+@import '../vars/index';
 
 *,
-body {
+*::after,
+*::before {
   box-sizing: border-box;
-  font-family: $apris;
-  font-size: $font-size-regular;
-  color: $white;
 }
 
-.tp-dfwv {
-  z-index: 100;
+:root {
+  --padding-sides: $padding-sides;
 }
 
 body {
+  margin: 0;
+  color: $color-text;
+  background-color: $color-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-family: auger-mono, monospace;
+  font-weight: 300;
+  text-transform: uppercase;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: $color-link;
+  outline: none;
+  cursor: pointer;
+}
+
+.hover-line {
   overflow: hidden;
+  position: relative;
 }
 
-em {
-  font-family: $goudy !important;
+.hover-line::before {
+  content: '';
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  position: absolute;
+  top: 92%;
+  transition: transform 0.3s;
+  transform-origin: 0% 50%;
 }
 
-#app {
-  button {
-      position: relative;
-      appearance: none;
-      border: 0;
-      background: none;
-      text-transform: uppercase;
-      font-size: rem(15px);
-      letter-spacing: rem(2.5px);
-      cursor: pointer;
+.hover-line:hover::before {
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+}
 
-      @media #{$mq-mobile} {
-        font-size: rem(14px);
-    }
+a:hover {
+  text-decoration: none;
+  color: $color-link-hover;
+  outline: none;
+}
 
-    &.secondary {
-      p {
-        position: relative;
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+  /* Provide a fallback style for browsers
+     that don't support :focus-visible */
+  outline: none;
+  background: lightgrey;
+}
 
-        &::before,
-        &::after {
-          content: "";
-          background-image: url('/backgrounds/button-secondary.svg');
-          width: rem(10px);
-          height: 80%;
-          display: block;
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background-repeat: no-repeat;
-          background-size: contain;
-          transition: all 0.4s ease-in-out;
-        }
+a:focus:not(:focus-visible) {
+  /* Remove the focus indicator on mouse-focus for browsers
+     that do support :focus-visible */
+  background: transparent;
+}
 
-        @media (hover: hover) {
-          &:hover {
-            &::before {
-              transform: translate3d(rem(3px), -50%, 0) scaleX(1);
-            }
+a:focus-visible {
+  /* Draw a very noticeable focus style for
+     keyboard-focus on browsers that do support
+     :focus-visible */
+  outline: 2px solid red;
+  background: transparent;
+}
 
-            &::after {
-              transform: translate3d(rem(-3px), -50%, 0) scaleX(-1);
-            }
-          }
-        }
+.unbutton {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
 
-        &::before {
-          left: rem(-12px);
-        }
-
-        &::after {
-          right: rem(-8px);
-          transform: translateY(-50%) scaleX(-1);
-        }
-      }
-    }
-  }
+.unbutton:focus {
+  outline: none;
 }
