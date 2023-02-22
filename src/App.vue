@@ -1,32 +1,67 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
+import RowGrid from '@modules/RowGrid/RowGrid.vue';
+
+import { preloadImages, preloadFonts } from '@utils';
+import { onMounted } from 'vue';
+
+import '@/assets/scss/global/index.scss';
+
+// Preload images and fonts
+onMounted(() => {
+  Promise.all([preloadImages('.cell__img-inner')]).then(() => {
+    document.body.classList.remove('loading');
+  });
+});
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <main>
+    <header class="intro">
+      <h1>Hello, I'm <span>Thi Van An TRUONG</span></h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores pariatur aut ut ad eaque natus neque!
+        Architecto iusto velit dolores sapiente, eligendi, nobis explicabo molestias voluptatibus magni dignissimos
+        porro maiores.
+      </p>
+    </header>
+    <RowGrid />
+    <footer class="outro">
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus architecto expedita natus nihil alias
+        esse vero ipsum, facere est veniam, fugit possimus porro nulla error eum similique ullam repellendus eos!
+      </p>
+    </footer>
+  </main>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+.intro {
+  padding: 1rem 3rem;
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.intro p {
+  max-width: 860px;
 }
 
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.outro {
+  padding: 1rem 3rem;
+}
+
+.outro__text {
+  max-width: 860px;
+  margin: 1.5rem auto;
+  line-height: 1.5;
+}
+
+.outro__credits {
+  padding-top: 10vh;
+  text-align: center;
+}
+
+@media screen and (min-width: 61em) {
+  :root {
+    --padding-sides: 4rem;
+    --padding-row: 2rem;
+  }
 }
 </style>
