@@ -2,7 +2,6 @@
 import RowItem from './RowItem.vue';
 import PreviewItem from './PreviewItem.vue';
 import PreviewImage from '@elements/PreviewImage.vue';
-import mock from '@/data/mock.json';
 
 import { Row } from './row';
 
@@ -12,11 +11,18 @@ import gsap from 'gsap-bonus';
 import { Flip } from 'gsap-bonus/Flip';
 gsap.registerPlugin(Flip);
 
+const props = defineProps({
+  data: {
+    type: Array,
+    default: () => [],
+  },
+});
+
 const bigImg = ref('');
 
 const resetPreviewImage = () => (bigImg.value = '');
 
-onMounted(() => {
+const initAnim = () => {
   // preview Items
   const previewItems = [...document.querySelectorAll('.preview > .preview__item')];
   // initial rows
@@ -164,6 +170,11 @@ onMounted(() => {
 
     // Open a row and reveal the grid
     row.DOM.el.addEventListener('click', () => {
+      let previewArr = [];
+      if (row.previewItem.DOM.content) previewArr.push(row.previewItem.DOM.content);
+      if (row.previewItem.DOM.video) previewArr.push(row.previewItem.DOM.video);
+      if (row.previewItem.DOM.hashtags) previewArr.push(row.previewItem.DOM.hashtags);
+
       if (isAnimating) return;
       isAnimating = true;
 
@@ -197,7 +208,7 @@ onMounted(() => {
 
             gsap.set(row.previewItem.DOM.button, { opacity: 0 });
 
-            gsap.set([row.previewItem.DOM.content, row.previewItem.DOM.video, row.previewItem.DOM.hashtags], {
+            gsap.set(previewArr, {
               opacity: 0,
               scale: 0,
             });
@@ -286,7 +297,7 @@ onMounted(() => {
           'start'
         )
         .to(
-          [row.previewItem.DOM.content, row.previewItem.DOM.video, row.previewItem.DOM.hashtags],
+          previewArr,
           {
             scale: 1,
             opacity: 1,
@@ -307,6 +318,10 @@ onMounted(() => {
     isOpen = false;
 
     const row = rowsArr[currentRow];
+    let previewArr = [];
+    if (row.previewItem.DOM.content) previewArr.push(row.previewItem.DOM.content);
+    if (row.previewItem.DOM.video) previewArr.push(row.previewItem.DOM.video);
+    if (row.previewItem.DOM.hashtags) previewArr.push(row.previewItem.DOM.hashtags);
 
     gsap
       .timeline({
@@ -341,7 +356,7 @@ onMounted(() => {
         0
       )
       .to(
-        [row.previewItem.DOM.content, row.previewItem.DOM.video, row.previewItem.DOM.hashtags],
+        previewArr,
         {
           scale: 0,
           opacity: 0,
@@ -406,6 +421,10 @@ onMounted(() => {
         'start+=0.4'
       );
   });
+};
+
+onMounted(() => {
+  setTimeout(() => initAnim(), 1200);
 });
 </script>
 
@@ -413,20 +432,24 @@ onMounted(() => {
   <section class="content">
     <div class="cover"></div>
     <RowItem
-      v-for="(data, index) in mock.rows"
-      :key="`mock-row-${index}`"
-      :cell-text="data.cellText"
-      :cell-images="data.cellImages"
+      v-for="(project, index) in data"
+      :key="`row-${index}`"
+      :cell-text="project.previewTitle"
+      :cell-images="project.rowImages"
     />
   </section>
 
   <section class="preview">
     <button class="preview__close unbutton">&#9587;</button>
     <PreviewItem
-      v-for="(data, index) in mock.previews"
-      :key="`mock-preview-${index}`"
-      :preview-text="data.previewText"
-      :preview-images="data.previewImages"
+      v-for="(project, index) in data"
+      :key="`preview-${index}`"
+      :preview-title="project.previewTitle"
+      :preview-images="project.previewImages"
+      :preview-content="project.previewContent"
+      :preview-video="project.previewVideo"
+      :preview-hashtags="project.previewHashtags"
+      :preview-link="project.previewLink"
     />
   </section>
 
@@ -497,7 +520,7 @@ onMounted(() => {
 
   &__title {
     margin: 0;
-    font-size: clamp(1.953rem, 4vw, 3.052rem);
+    font-size: clamp(1.2rem, 4vw, 2.8rem);
     position: relative;
     font-weight: 400;
     line-height: 1;
@@ -530,11 +553,12 @@ onMounted(() => {
     opacity: 0;
 
     &-inner {
-      background-size: cover;
+      background-size: contain;
       background-position: 50% 50%;
       aspect-ratio: 1;
       width: 100%;
       border-radius: calc($image-gap) / 3;
+      background-repeat: no-repeat;
     }
   }
 }

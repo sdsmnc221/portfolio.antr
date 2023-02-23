@@ -2,7 +2,7 @@
 import PreviewButton from '@elements/PreviewButton.vue';
 
 const props = defineProps({
-  previewText: {
+  previewTitle: {
     type: String,
     required: true,
   },
@@ -10,43 +10,51 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  previewContent: {
+    type: String,
+    default: null,
+  },
+  previewVideo: {
+    type: String,
+    default: null,
+  },
+  previewHashtags: {
+    type: Array,
+    default: () => [],
+  },
+  previewLink: {
+    type: Object,
+    default: null,
+  },
 });
+
+console.log(props);
 </script>
 
 <template>
   <div class="preview__item">
     <h2 class="preview__item-title oh">
-      <span class="oh__inner">{{ previewText }}</span>
-      <PreviewButton label="Discover" link="https://uiverse.io/satyamchaudharydev/hungry-parrot-44" />
+      <span class="oh__inner">{{ previewTitle }}</span>
+      <PreviewButton v-if="previewLink" label="Discover" :link="previewLink.url" />
     </h2>
     <div class="grid">
       <div
         v-for="(image, index) in previewImages"
-        :key="`preview-image-${previewText}-${index}`"
+        :key="`preview-image-${previewTitle}-${index}`"
         class="cell__img"
-        :data-img="image"
+        :data-img="image.filename"
       >
-        <div class="cell__img-inner" :style="`background-image: url(${image})`"></div>
+        <div class="cell__img-inner" :style="`background-image: url(${image.filename})`"></div>
       </div>
     </div>
-    <div class="preview__content">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, ad. Voluptatibus, deserunt temporibus
-        necessitatibus dolor, eos commodi molestiae, aliquam ratione quam ducimus doloremque omnis. Quidem, corrupti.
-        Molestiae corporis voluptatem suscipit?
-      </p>
-    </div>
+    <div class="preview__content" v-if="previewContent" v-html="previewContent"></div>
     <div class="preview__video">
       <video autoplay muted loop>
         <source src="vid/video.mp4" type="video/mp4" />
       </video>
     </div>
-    <div class="preview__hashtags">
-      <p>
-        <span>#cat</span>
-        <span>#cat</span>
-        <span>#cat</span>
-      </p>
+    <div class="preview__hashtags" v-if="previewHashtags.length > 0">
+      <p v-for="(tag, index) in previewHashtags" :key="`hashtag-${previewTitle}-${tag}-${index}`">{{ tag }}</p>
     </div>
   </div>
 </template>
@@ -81,7 +89,6 @@ const props = defineProps({
 
     &-title {
       margin: 0;
-      font-size: clamp(1.953rem, 4vw, 3.052rem);
       position: relative;
       font-weight: 400;
       line-height: 1;
@@ -89,7 +96,7 @@ const props = defineProps({
       white-space: nowrap;
       font-family: lores-22-serif, sans-serif;
       font-weight: 700;
-      font-size: clamp(1.563rem, 6vw, 3.815rem);
+      font-size: clamp(1.2rem, 6vw, 3.6rem);
     }
   }
 
