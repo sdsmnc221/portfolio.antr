@@ -2,9 +2,30 @@
 import RowGrid from '@modules/RowGrid/RowGrid.vue';
 
 import { preloadImages, preloadFonts } from '@utils';
-import { onMounted } from 'vue';
+import projectsAdapter from '@utils/prismic/projectsAdapter';
+import { onMounted, ref } from 'vue';
+import { useSinglePrismicDocument } from '@prismicio/vue';
 
 import '@/assets/scss/global/index.scss';
+
+const projects = ref([]);
+
+const { data: doc } = useSinglePrismicDocument('homepage', {
+  fetchLinks: [
+    'project.title',
+    'project.row_images',
+    'project.preview_images',
+    'project.description',
+    'project.video',
+    'project.link',
+  ],
+});
+
+setTimeout(() => {
+  if (doc.value && doc.value.data) {
+    projects.value = projectsAdapter(doc.value.data.projects);
+  }
+}, 1000);
 
 // Preload images and fonts
 onMounted(() => {
@@ -24,7 +45,7 @@ onMounted(() => {
         porro maiores.
       </p>
     </header>
-    <RowGrid />
+    <RowGrid :data="projects" />
     <footer class="outro">
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus architecto expedita natus nihil alias

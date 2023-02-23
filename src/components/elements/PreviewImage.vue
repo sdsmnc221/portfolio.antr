@@ -36,6 +36,14 @@ const props = defineProps({
     z-index: 1;
   }
 
+  img {
+    display: block;
+    height: 50vh;
+    max-width: 72vw;
+    width: auto;
+    object-fit: contain;
+  }
+
   &::after {
     content: '';
     position: absolute;

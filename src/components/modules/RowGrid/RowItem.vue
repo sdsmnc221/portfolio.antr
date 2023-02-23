@@ -23,9 +23,9 @@ const props = defineProps({
         v-for="(image, index) in cellImages"
         :key="`cell-image-${cellText}-${index}`"
         class="cell__img"
-        :data-img="image"
+        :data-img="image.filename"
       >
-        <div class="cell__img-inner" :style="`background-image: url(${image})`"></div>
+        <div class="cell__img-inner" :style="`background-image: url(${image.filename})`"></div>
       </div>
     </div>
     <div class="cell cell--year">2022</div>

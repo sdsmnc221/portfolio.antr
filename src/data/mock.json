@@ -62,7 +62,7 @@
     ],
     "previews": [
         {
-            "previewText": "Good Wings",
+            "previewTitle": "Good Wings",
             "previewImages": [
                 "img/30.jpg",
                 "img/29.jpg",
@@ -70,14 +70,14 @@
             ]
         },
         {
-            "previewText": "Maniac Fly",
+            "previewTitle": "Maniac Fly",
             "previewImages": [
                 "img/22.jpg",
                 "img/21.jpg"
             ]
         },
         {
-            "previewText": "Crumble Toe",
+            "previewTitle": "Crumble Toe",
             "previewImages": [
                 "img/20.jpg",
                 "img/19.jpg",
@@ -87,7 +87,7 @@
             ]
         },
         {
-            "previewText": "Finger Wax",
+            "previewTitle": "Finger Wax",
             "previewImages": [
                 "img/15.jpg",
                 "img/14.jpg",
@@ -96,14 +96,14 @@
             ]
         },
         {
-            "previewText": "Haunted X",
+            "previewTitle": "Haunted X",
             "previewImages": [
                 "img/11.jpg",
                 "img/10.jpg"
             ]
         },
         {
-            "previewText": "Next Horror",
+            "previewTitle": "Next Horror",
             "previewImages": [
                 "img/6.jpg",
                 "img/8.jpg",

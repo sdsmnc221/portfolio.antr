@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import prismic from '@utils/prismic';
 
-createApp(App).mount('#app');
+createApp(App).use(prismic).mount('#app');
