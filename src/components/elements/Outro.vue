@@ -177,6 +177,8 @@ const props = defineProps({
     border: 1px solid #e8e8e8;
     transition: all 0.3s;
     box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+    font-family: $major-mono;
+    font-weight: 700;
 
     &::after {
       content: '';
@@ -195,6 +197,33 @@ const props = defineProps({
     &:hover {
       color: #666;
       box-shadow: inset 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+    }
+  }
+
+  @media #{$mq-mobile} {
+    * {
+      font-size: $ft-s-small !important;
+    }
+
+    .flex {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .outro__hashtags {
+        margin-bottom: 2rem;
+      }
+
+      .outro__resume {
+        .container .box {
+          width: 240px;
+        }
+      }
+    }
+
+    &__contact {
+      width: 240px;
+      padding: 2rem 1rem;
     }
   }
 }

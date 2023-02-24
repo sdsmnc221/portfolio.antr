@@ -24,6 +24,7 @@ const { data: doc } = useSinglePrismicDocument('homepage', {
     'project.description',
     'project.video',
     'project.link',
+    'project.year',
   ],
 });
 

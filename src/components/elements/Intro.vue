@@ -96,5 +96,20 @@ const props = defineProps({
     pointer-events: none;
     user-select: none;
   }
+
+  @media #{$mq-mobile} {
+    &__head {
+      h1 {
+        font-size: $ft-s-small;
+      }
+    }
+
+    &__text {
+      max-width: 84vw;
+      p {
+        font-size: $ft-s-xsmall;
+      }
+    }
+  }
 }
 </style>

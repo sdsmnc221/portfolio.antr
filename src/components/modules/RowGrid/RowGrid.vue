@@ -442,6 +442,7 @@ onMounted(() => {
       :key="`row-${index}`"
       :cell-text="project.previewTitle"
       :cell-images="project.rowImages"
+      :year="project.year"
       :index="index"
       @click="setActiveRow(index)"
     />
