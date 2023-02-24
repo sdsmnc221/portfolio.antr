@@ -7,16 +7,17 @@ import projectsAdapter from '@utils/prismic/projectsAdapter';
 import introAdapter from '@utils/prismic/introAdapter';
 import outroAdapter from '@utils/prismic/outroAdapter';
 
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useSinglePrismicDocument, usePrismic } from '@prismicio/vue';
 
 import '@/assets/scss/global/index.scss';
 
+const doc = ref(null);
 const projects = ref([]);
 const intro = ref(null);
 const outro = ref(null);
 
-const { data: doc } = useSinglePrismicDocument('homepage', {
+const { data } = useSinglePrismicDocument('homepage', {
   fetchLinks: [
     'project.title',
     'project.row_images',
@@ -28,23 +29,27 @@ const { data: doc } = useSinglePrismicDocument('homepage', {
   ],
 });
 
+setTimeout(() => {
+  doc.value = data;
+}, 1000);
+
 console.log(doc);
 
 const prismic = usePrismic();
 
-setTimeout(() => {
-  if (doc.value && doc.value.data) {
-    projects.value = projectsAdapter(doc.value.data.projects, prismic);
+watch(doc, async (newVal) => {
+  if (newVal.value && newVal.value.data) {
+    projects.value = await projectsAdapter(newVal.value.data.projects, prismic);
     intro.value = introAdapter(
-      doc.value.data.body.find((slice) => slice.slice_type === 'intro'),
+      newVal.value.data.body.find((slice) => slice.slice_type === 'intro'),
       prismic
     );
     outro.value = outroAdapter(
-      doc.value.data.body.find((slice) => slice.slice_type === 'outro'),
-      doc.value.tags
+      newVal.value.data.body.find((slice) => slice.slice_type === 'outro'),
+      newVal.value.tags
     );
   }
-}, 1000);
+});
 </script>
 
 <template>

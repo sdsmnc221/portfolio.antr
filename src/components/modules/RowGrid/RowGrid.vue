@@ -460,6 +460,7 @@ onMounted(() => {
       :preview-hashtags="project.previewHashtags"
       :preview-link="project.previewLink"
       :index="index"
+      :nb-images="project.previewImages.length + project.rowImages.length"
     />
   </section>
 

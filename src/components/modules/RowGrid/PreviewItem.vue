@@ -32,11 +32,15 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  nbImages: {
+    type: Number,
+    required: true,
+  },
 });
 </script>
 
 <template>
-  <div class="preview__item">
+  <div class="preview__item" :style="`--nb-row: ${Math.ceil(nbImages / 4)};`">
     <h2 class="preview__item-title oh">
       <span class="oh__inner">{{ previewTitle }}</span>
       <PreviewButton
@@ -74,6 +78,9 @@ const props = defineProps({
 
 <style lang="scss">
 .preview {
+  --nb-col: 4;
+  --nb-row: 1;
+
   &__item {
     width: 100%;
     height: 100%;
@@ -149,8 +156,8 @@ const props = defineProps({
   gap: $image-gap-large;
   justify-content: center;
   justify-items: center;
-  grid-template-columns: repeat(4, $img-size-large);
-  grid-template-rows: repeat(2, $img-size-large);
+  grid-template-columns: repeat(var(--nb-col), $img-size-large);
+  grid-template-rows: repeat(var(--nb-row), $img-size-large);
 
   .cell__img {
     width: $img-size-large;
@@ -160,6 +167,7 @@ const props = defineProps({
 @media #{$mq-mobile} {
   .preview__item {
     padding-top: 16vh;
+    gap: 4vh;
   }
 
   .grid {
