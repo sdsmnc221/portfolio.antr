@@ -577,6 +577,7 @@ onMounted(() => {
     grid-template-rows: auto auto;
     will-change: transform, opacity;
     opacity: 0;
+    cursor: pointer;
 
     &-inner {
       background-size: contain;
