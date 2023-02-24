@@ -49,7 +49,7 @@ const props = defineProps({
 
     <PreviewContent v-if="previewContent" :content="previewContent" :variant="index % 2 === 0 ? 'pink' : 'blue'" />
 
-    <div class="grid">
+    <div v-if="previewImages.length > 0" class="grid">
       <div
         v-for="(image, index) in previewImages"
         :key="`preview-image-${previewTitle}-${index}`"
@@ -60,7 +60,7 @@ const props = defineProps({
       </div>
     </div>
 
-    <div class="preview__video">
+    <div v-if="previewVideo" class="preview__video">
       <video autoplay muted loop>
         <source src="vid/video.mp4" type="video/mp4" />
       </video>
