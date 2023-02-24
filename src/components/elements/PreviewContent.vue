@@ -36,6 +36,10 @@ const props = defineProps({
   font-weight: bold;
   font-size: 14px;
 
+  @media #{$mq-mobile} {
+    margin: 24px;
+  }
+
   &.pink {
     .preview__content_sl {
       background-color: $color-link-pink;
