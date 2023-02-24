@@ -17,7 +17,7 @@ const props = defineProps({
     default: null,
   },
   previewVideo: {
-    type: String,
+    type: Object,
     default: null,
   },
   previewHashtags: {
@@ -34,6 +34,10 @@ const props = defineProps({
   },
   nbImages: {
     type: Number,
+    required: true,
+  },
+  displayImages: {
+    type: Boolean,
     required: true,
   },
 });
@@ -53,7 +57,7 @@ const props = defineProps({
 
     <PreviewContent v-if="previewContent" :content="previewContent" :variant="index % 2 === 0 ? 'pink' : 'blue'" />
 
-    <div v-if="previewImages.length > 0" class="grid">
+    <div v-if="previewImages.length > 0" class="grid" :class="{ hidden: !displayImages }">
       <div
         v-for="(image, index) in previewImages"
         :key="`preview-image-${previewTitle}-${index}`"
@@ -162,6 +166,14 @@ const props = defineProps({
 
   .cell__img {
     width: $img-size-large;
+  }
+
+  &.hidden {
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    position: absolute !important;
   }
 }
 

@@ -25,6 +25,7 @@ export default async function (data, prismic) {
       previewLink: data.link,
       rowImages: data.row_images.map(({ cell_image }) => imageAdapter(cell_image)),
       year: data.year,
+      displayImages: data.display_images,
     });
   }
 

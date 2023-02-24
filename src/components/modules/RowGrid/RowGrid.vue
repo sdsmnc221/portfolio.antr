@@ -471,6 +471,7 @@ watch(
       :preview-link="project.previewLink"
       :index="index"
       :nb-images="project.previewImages.length + project.rowImages.length"
+      :display-images="project.displayImages"
     />
   </section>
 
