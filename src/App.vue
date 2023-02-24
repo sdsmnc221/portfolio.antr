@@ -1,9 +1,11 @@
 <script setup>
 import Intro from '@elements/Intro.vue';
 import RowGrid from '@modules/RowGrid/RowGrid.vue';
+import Outro from '@elements/Outro.vue';
 
 import projectsAdapter from '@utils/prismic/projectsAdapter';
 import introAdapter from '@utils/prismic/introAdapter';
+import outroAdapter from '@utils/prismic/outroAdapter';
 
 import { ref } from 'vue';
 import { useSinglePrismicDocument, usePrismic } from '@prismicio/vue';
@@ -12,6 +14,7 @@ import '@/assets/scss/global/index.scss';
 
 const projects = ref([]);
 const intro = ref(null);
+const outro = ref(null);
 
 const { data: doc } = useSinglePrismicDocument('homepage', {
   fetchLinks: [
@@ -35,6 +38,10 @@ setTimeout(() => {
       doc.value.data.body.find((slice) => slice.slice_type === 'intro'),
       prismic
     );
+    outro.value = outroAdapter(
+      doc.value.data.body.find((slice) => slice.slice_type === 'outro'),
+      doc.value.tags
+    );
   }
 }, 1000);
 </script>
@@ -43,31 +50,11 @@ setTimeout(() => {
   <main>
     <Intro v-if="intro" v-bind="intro" />
     <RowGrid :data="projects" />
-    <footer class="outro">
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus architecto expedita natus nihil alias
-        esse vero ipsum, facere est veniam, fugit possimus porro nulla error eum similique ullam repellendus eos!
-      </p>
-    </footer>
+    <Outro v-if="outro" v-bind="outro" />
   </main>
 </template>
 
 <style>
-.outro {
-  padding: 1rem 3rem;
-}
-
-.outro__text {
-  max-width: 860px;
-  margin: 1.5rem auto;
-  line-height: 1.5;
-}
-
-.outro__credits {
-  padding-top: 10vh;
-  text-align: center;
-}
-
 @media screen and (min-width: 61em) {
   :root {
     --padding-sides: 4rem;

@@ -13,10 +13,10 @@ const props = defineProps({
 
 <template>
   <div class="preview__content" :class="variant">
-    <p class="preview__content_lg">
+    <div class="preview__content_lg">
       <p class="preview__content_sl"></p>
       <p class="preview__content_text" v-html="content" />
-    </p>
+    </div>
   </div>
 </template>
 
@@ -35,7 +35,6 @@ const props = defineProps({
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
-  transition: all 0.15s ease;
 
   &.pink {
     .preview__content_sl {
