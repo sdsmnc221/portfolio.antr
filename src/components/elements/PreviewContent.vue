@@ -27,28 +27,68 @@ const props = defineProps({
   appearance: none;
   border: none;
   background: none;
-  color: #0f1923;
+  color: $color-text;
   cursor: pointer;
   position: relative;
   padding: 8px;
   margin-bottom: 20px;
-  text-transform: uppercase;
+  line-height: $ft-s-medium;
   font-weight: bold;
-  font-size: 14px;
+  margin: 0 16vw;
 
   @media #{$mq-mobile} {
     margin: 24px;
+
+    &.pink {
+      .preview__content_lg {
+        background-color: $color-link-pink;
+      }
+    }
+
+    &.blue {
+      .preview__content_lg {
+        background-color: $color-link-blue;
+      }
+    }
+
+    &.pink,
+    &.blue {
+      .preview__content_sl {
+        background-color: $color-text !important;
+        transform: skew(-8deg) !important;
+      }
+    }
   }
 
   &.pink {
     .preview__content_sl {
       background-color: $color-link-pink;
     }
+
+    .preview__content_text {
+      a {
+        color: $color-light-blue;
+
+        &:hover {
+          color: $color-light-pink;
+        }
+      }
+    }
   }
 
   &.blue {
     .preview__content_sl {
       background-color: $color-link-blue;
+    }
+
+    .preview__content_text {
+      a {
+        color: $color-light-pink;
+
+        &:hover {
+          color: $color-light-blue;
+        }
+      }
     }
   }
 }
@@ -63,6 +103,7 @@ const props = defineProps({
   height: calc(50% - 5px);
   border: 1px solid #7d8082;
   transition: all 0.15s ease;
+  pointer-events: none;
 }
 
 .preview__content::before {
@@ -99,7 +140,7 @@ const props = defineProps({
   display: block;
   padding: 10px 20px;
   color: #fff;
-  background-color: #0f1923;
+  background-color: $color-text;
   overflow: hidden;
   box-shadow: inset 0px 0px 0px 1px transparent;
 }
@@ -112,7 +153,7 @@ const props = defineProps({
   left: 0;
   width: 2px;
   height: 2px;
-  background-color: #0f1923;
+  background-color: $color-text;
 }
 
 .preview__content_lg::after {
@@ -123,7 +164,7 @@ const props = defineProps({
   bottom: 0;
   width: 4px;
   height: 4px;
-  background-color: #0f1923;
+  background-color: $color-text;
   transition: all 0.2s ease;
 }
 
@@ -132,7 +173,7 @@ const props = defineProps({
   position: absolute;
   top: 0;
   bottom: -1px;
-  left: -8px;
+  left: -64px;
   width: 0;
   transform: skew(-15deg);
   transition: all 0.2s ease;
@@ -140,14 +181,18 @@ const props = defineProps({
 
 .preview__content_text {
   position: relative;
+
+  p:not(:first-of-type) {
+    margin-top: 1rem;
+  }
 }
 
 .preview__content:hover {
-  color: #0f1923;
+  color: $color-text;
 }
 
 .preview__content:hover .preview__content_sl {
-  width: calc(100% + 15px);
+  width: calc(132% + 15px);
 }
 
 .preview__content:hover .preview__content_lg::after {
