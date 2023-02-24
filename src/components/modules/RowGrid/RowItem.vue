@@ -8,6 +8,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  year: {
+    type: String,
+    required: true,
+  },
   index: {
     type: Number,
     required: true,
@@ -32,7 +36,7 @@ const props = defineProps({
         <div class="cell__img-inner" :style="`background-image: url(${image.filename})`"></div>
       </div>
     </div>
-    <div class="cell cell--year">2022</div>
+    <div class="cell cell--year">{{ year }}</div>
   </div>
 </template>
 

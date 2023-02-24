@@ -12,6 +12,7 @@ export default function (data, prismic) {
       previewHashtags: tags,
       previewLink: data.link,
       rowImages: data.row_images.map(({ cell_image }) => imageAdapter(cell_image)),
+      year: data.year,
     };
   });
 }
