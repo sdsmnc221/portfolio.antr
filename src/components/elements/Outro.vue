@@ -89,7 +89,7 @@ const props = defineProps({
     width: 72vw;
     display: flex;
     justify-content: space-around;
-    align-items: stretch;
+    align-items: center;
 
     .outro__hashtags {
       margin-right: 3.2rem;
