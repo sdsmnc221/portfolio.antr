@@ -226,5 +226,17 @@ const props = defineProps({
       padding: 2rem 1rem;
     }
   }
+
+  @media #{$mq-mobile} {
+    .flex {
+      .outro__hashtags {
+        margin-right: 0;
+
+        .tag {
+          font-size: $ft-s-xsmall !important;
+        }
+      }
+    }
+  }
 }
 </style>
