@@ -1,12 +1,15 @@
-$color-text: #131313;
-$color-bg: #fff;
-$color-link: #000;
-$color-link-hover: #131313;
+$color-text: #1a1719;
+$color-bg: #ececec;
+$color-link-blue: #327faa;
+$color-link-hover-blue: #c44e8c;
+$color-link-pink: #c44e8c;
+$color-link-hover-pink: #327faa;
 $padding-sides: 2rem;
 $padding-row: 1rem;
-$color-row-border: #f0f0f0;
-$color-bg-row-hover: #f0f0f0;
-$color-text-alt: #000;
+$color-row-border-pink: #c44e8c;
+$color-row-border-blue: #327faa;
+$color-bg-row-hover-pink: #e2cfdc;
+$color-bg-row-hover-blue: #cfdce2;
 $image-gap: 1vw;
 $image-gap-large: 2vw;
 $img-size: 5vw;
@@ -15,7 +18,7 @@ $img-size-xlarge: 28vw;
 
 $ft-s-xxsmall: 0.75rem; // 12px
 $ft-s-xsmall: 1rem; // 16px
-$ft-s-small: 1.25rem; // 20px
+$ft-s-small: 1.25rem; // 20påx
 $ft-s-medium: 1.5rem; // 24px
 $ft-s-large: 2rem; // 32px
 $ft-s-xlarge: 3rem; // 48px

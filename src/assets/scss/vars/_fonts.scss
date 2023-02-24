@@ -1,21 +1,3 @@
-@font-face {
-  font-family: Akzidenz;
-  src: url('/fonts/AkzidenzGroteskBQ-Light.otf') format('opentype');
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Apris;
-  src: url('/fonts/AprisDemo-Regular.otf') format('opentype');
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Goudy;
-  src: url('/fonts/GoudyOldStyleBT-Roman.ttf') format('truetype');
-  font-style: normal;
-}
-
-$akzidenz: 'Akzidenz', sans-serif;
-$apris: 'Apris', serif;
-$goudy: 'Goudy', serif;
+$montserrat: 'Montserrat', sans-serif;
+$major-mono: 'Major Mono Display', monospace;
+$yeseva-one: 'Yeseva One', serif;
