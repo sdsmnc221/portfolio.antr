@@ -1,14 +1,17 @@
 <script setup>
+import Intro from '@elements/Intro.vue';
 import RowGrid from '@modules/RowGrid/RowGrid.vue';
 
-import { preloadImages, preloadFonts } from '@utils';
 import projectsAdapter from '@utils/prismic/projectsAdapter';
-import { onMounted, ref } from 'vue';
-import { useSinglePrismicDocument } from '@prismicio/vue';
+import introAdapter from '@utils/prismic/introAdapter';
+
+import { ref } from 'vue';
+import { useSinglePrismicDocument, usePrismic } from '@prismicio/vue';
 
 import '@/assets/scss/global/index.scss';
 
 const projects = ref([]);
+const intro = ref(null);
 
 const { data: doc } = useSinglePrismicDocument('homepage', {
   fetchLinks: [
@@ -21,30 +24,24 @@ const { data: doc } = useSinglePrismicDocument('homepage', {
   ],
 });
 
+console.log(doc);
+
+const prismic = usePrismic();
+
 setTimeout(() => {
   if (doc.value && doc.value.data) {
-    projects.value = projectsAdapter(doc.value.data.projects);
+    projects.value = projectsAdapter(doc.value.data.projects, prismic);
+    intro.value = introAdapter(
+      doc.value.data.body.find((slice) => slice.slice_type === 'intro'),
+      prismic
+    );
   }
 }, 1000);
-
-// Preload images and fonts
-onMounted(() => {
-  Promise.all([preloadImages('.cell__img-inner')]).then(() => {
-    document.body.classList.remove('loading');
-  });
-});
 </script>
 
 <template>
   <main>
-    <header class="intro">
-      <h1>Hello, I'm <span>Thi Van An TRUONG</span></h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores pariatur aut ut ad eaque natus neque!
-        Architecto iusto velit dolores sapiente, eligendi, nobis explicabo molestias voluptatibus magni dignissimos
-        porro maiores.
-      </p>
-    </header>
+    <Intro v-if="intro" v-bind="intro" />
     <RowGrid :data="projects" />
     <footer class="outro">
       <p>
@@ -56,14 +53,6 @@ onMounted(() => {
 </template>
 
 <style>
-.intro {
-  padding: 1rem 3rem;
-}
-
-.intro p {
-  max-width: 860px;
-}
-
 .outro {
   padding: 1rem 3rem;
 }

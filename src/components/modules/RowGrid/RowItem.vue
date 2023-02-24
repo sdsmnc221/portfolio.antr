@@ -8,11 +8,15 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  index: {
+    type: Number,
+    required: true,
+  },
 });
 </script>
 
 <template>
-  <div class="row">
+  <div class="row" :class="{ '-pink': index % 2 === 0, '-blue': index % 2 !== 0 }">
     <div class="cell cell--text">
       <h2 class="cell__title oh">
         <span class="oh__inner">{{ cellText }}</span>
@@ -44,16 +48,36 @@ const props = defineProps({
   grid-column-gap: 5vw;
   align-items: center;
   padding: $padding-row $padding-sides;
-  border-top: 1px solid $color-row-border;
   transition: background-color 0.3s ease-out, border-color 0.3s ease-out;
 
-  &:hover {
-    background-color: $color-bg-row-hover;
+  &.-pink {
+    border-top: 1px solid $color-row-border-pink;
+  }
+
+  &.-blue {
+    border-top: 1px solid $color-row-border-blue;
+  }
+
+  &:nth-of-type(n) {
+    &:hover {
+      background-color: $color-bg-row-hover-blue;
+    }
+  }
+
+  &:nth-of-type(2n) {
+    &:hover {
+      background-color: $color-bg-row-hover-pink;
+    }
   }
 
   &--current {
     z-index: 11;
     transition: border-color 0.3s ease-out;
+
+    &.-pink,
+    &.-blue {
+      border-color: transparent;
+    }
   }
 
   .cell {
@@ -62,6 +86,7 @@ const props = defineProps({
       top: 50%;
       right: 4vw;
       transform: translateY(-50%);
+      font-family: $yeseva-one;
     }
     &--images {
       pointer-events: none;

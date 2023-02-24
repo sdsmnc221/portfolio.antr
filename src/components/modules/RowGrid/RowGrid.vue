@@ -20,7 +20,11 @@ const props = defineProps({
 
 const bigImg = ref('');
 
+const activeRow = ref(0);
+
 const resetPreviewImage = () => (bigImg.value = '');
+
+const setActiveRow = (index) => (activeRow.value = index);
 
 const initAnim = () => {
   // preview Items
@@ -326,9 +330,11 @@ const initAnim = () => {
     gsap
       .timeline({
         defaults: { duration: 0.5, ease: 'power4.inOut' },
-        onStart: () => body.classList.remove('oh'),
-        onComplete: () => {
+        onStart: () => {
+          body.classList.remove('oh');
           row.DOM.el.classList.remove('row--current');
+        },
+        onComplete: () => {
           row.previewItem.DOM.el.classList.remove('preview__item--current');
           isAnimating = false;
         },
@@ -429,13 +435,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="content">
-    <div class="cover"></div>
+  <section class="content" :class="{ '-pink': data.length % 2 === 0, '-blue': data.length % 2 !== 0 }">
+    <div class="cover" :class="{ '-pink': activeRow % 2 === 0, '-blue': activeRow % 2 !== 0 }"></div>
     <RowItem
       v-for="(project, index) in data"
       :key="`row-${index}`"
       :cell-text="project.previewTitle"
       :cell-images="project.rowImages"
+      :index="index"
+      @click="setActiveRow(index)"
     />
   </section>
 
@@ -450,6 +458,7 @@ onMounted(() => {
       :preview-video="project.previewVideo"
       :preview-hashtags="project.previewHashtags"
       :preview-link="project.previewLink"
+      :index="index"
     />
   </section>
 
@@ -460,7 +469,6 @@ onMounted(() => {
 
 <style lang="scss">
 .cover {
-  background: $color-bg-row-hover;
   width: 100%;
   height: 0;
   opacity: 0;
@@ -469,12 +477,27 @@ onMounted(() => {
   position: fixed;
   left: 0;
   will-change: height, top;
+
+  &.-pink {
+    background: $color-bg-row-hover-pink;
+  }
+
+  &.-blue {
+    background: $color-bg-row-hover-blue;
+  }
 }
 
 .content {
   position: relative;
   z-index: 100;
-  border-bottom: 1px solid $color-row-border;
+
+  &.-pink {
+    border-bottom: 1px solid $color-row-border-pink;
+  }
+
+  &.-blue {
+    border-bottom: 1px solid $color-row-border-blue;
+  }
 }
 
 .preview {
@@ -522,13 +545,14 @@ onMounted(() => {
     margin: 0;
     font-size: clamp(1.2rem, 4vw, 2.8rem);
     position: relative;
-    font-weight: 400;
     line-height: 1;
-    font-family: neue-haas-grotesk-display, sans-serif;
+    font-family: $yeseva-one;
+    font-weight: 700;
     white-space: nowrap;
+    text-transform: uppercase;
 
     &--switch {
-      font-family: lores-22-serif, sans-serif;
+      font-family: $major-mono;
       font-weight: 700;
     }
   }
