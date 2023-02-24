@@ -66,7 +66,7 @@ const props = defineProps({
 
     <div v-if="previewVideo" class="preview__video">
       <video autoplay muted loop>
-        <source src="vid/video.mp4" type="video/mp4" />
+        <source :src="previewVideo.url" type="video/mp4" />
       </video>
     </div>
 
