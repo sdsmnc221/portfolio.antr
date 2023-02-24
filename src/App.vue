@@ -26,14 +26,13 @@ const { data } = useSinglePrismicDocument('homepage', {
     'project.video',
     'project.link',
     'project.year',
+    'project.display_images',
   ],
 });
 
 setTimeout(() => {
   doc.value = data;
 }, 1000);
-
-console.log(doc);
 
 const prismic = usePrismic();
 
