@@ -134,6 +134,7 @@ const props = defineProps({
     video {
       width: 100%;
       height: auto;
+      max-height: 64vh;
       display: block;
     }
   }
