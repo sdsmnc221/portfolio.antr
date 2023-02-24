@@ -5,11 +5,13 @@ import PreviewImage from '@elements/PreviewImage.vue';
 
 import { Row } from './row';
 
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 import gsap from 'gsap-bonus';
 import { Flip } from 'gsap-bonus/Flip';
 gsap.registerPlugin(Flip);
+
+const triggerAnim = new CustomEvent('trigger-anim');
 
 const props = defineProps({
   data: {
@@ -430,8 +432,16 @@ const initAnim = () => {
 };
 
 onMounted(() => {
-  setTimeout(() => initAnim(), 1200);
+  // setTimeout(() => initAnim(), 1200);
+  window.addEventListener('trigger-anim', () => setTimeout(() => initAnim(), 1200));
 });
+
+watch(
+  () => props.data,
+  () => {
+    window.dispatchEvent(triggerAnim);
+  }
+);
 </script>
 
 <template>
