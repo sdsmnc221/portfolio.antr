@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url';
 import { VitePluginFonts } from 'vite-plugin-fonts';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { VitePluginRadar } from 'vite-plugin-radar';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,6 +14,13 @@ export default defineConfig({
     VitePluginFonts({
       google: {
         families: ['Montserrat', 'Major Mono Display', 'Yeseva One'],
+      },
+    }),
+    VitePluginRadar({
+      // Google Analytics tag injection
+      analytics: {
+        id: process.env.VITE_ANALYTICS,
+        disable: false,
       },
     }),
   ],
