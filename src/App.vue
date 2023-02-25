@@ -55,7 +55,7 @@ watch(doc, (newVal) => {
 </script>
 
 <template>
-  <main v-if="projects.length > 0">
+  <main>
     <Intro v-if="intro" v-bind="intro" />
     <RowGrid :data="projects" />
     <Outro v-if="outro" v-bind="outro" />
