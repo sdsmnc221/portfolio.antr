@@ -25,6 +25,13 @@ body {
   font-size: $ft-s-xsmall;
   position: relative;
 
+  &.-hide-gradient {
+    &::after,
+    .intro__text::after {
+      opacity: 0;
+    }
+  }
+
   &::after {
     content: '';
     display: block;
@@ -37,6 +44,7 @@ body {
     background: linear-gradient(60deg, $color-link-blue 0%, $color-link-pink 100%);
     mix-blend-mode: overlay;
     z-index: -1;
+    opacity: 1;
   }
 
   > * {

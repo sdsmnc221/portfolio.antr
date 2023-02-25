@@ -62,6 +62,7 @@ const props = defineProps({
       top: 0;
       left: -100%;
       mix-blend-mode: overlay;
+      opacity: 1;
     }
 
     p {
