@@ -61,7 +61,7 @@ const props = defineProps({
       </p>
     </div>
 
-    <img class="outro__decor" src="img/grid.svg" alt="" />
+    <img class="outro__decor" src="/img/grid.svg" alt="" />
   </footer>
 </template>
 

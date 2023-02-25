@@ -204,6 +204,7 @@ const initAnim = () => {
               height: row.DOM.el.offsetHeight - 1, // minus border width
               top: row.DOM.el.getBoundingClientRect()['top'],
               opacity: 1,
+              minHeight: '240vh',
             });
 
             gsap.set(row.previewItem.DOM.title, {

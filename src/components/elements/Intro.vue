@@ -15,7 +15,7 @@ const props = defineProps({
   <header class="intro">
     <div class="intro__head" v-html="head"></div>
     <div class="intro__text" v-html="shortText"></div>
-    <img class="intro__decor" src="img/grid.svg" alt="" />
+    <img class="intro__decor" src="/img/grid.svg" alt="" />
   </header>
 </template>
 
