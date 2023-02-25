@@ -221,6 +221,8 @@ const initAnim = () => {
             });
 
             closeCtrl.classList.add('preview__close--show');
+
+            document.body.classList.add('-hide-gradient');
           },
           onComplete: () => (isAnimating = false),
         })
@@ -334,7 +336,7 @@ const initAnim = () => {
       .timeline({
         defaults: { duration: 0.5, ease: 'power4.inOut' },
         onStart: () => {
-          body.classList.remove('oh');
+          body.classList.remove('oh', '-hide-gradient');
           row.DOM.el.classList.remove('row--current');
         },
         onComplete: () => {
