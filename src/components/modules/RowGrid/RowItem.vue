@@ -1,4 +1,6 @@
 <script setup>
+import Marquee from '@elements/Marquee.vue';
+
 const props = defineProps({
   cellText: {
     type: String,
@@ -16,27 +18,34 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  hashtags: {
+    type: Array,
+    required: true,
+  },
 });
 </script>
 
 <template>
-  <div class="row" :class="{ '-pink': index % 2 === 0, '-blue': index % 2 !== 0 }">
-    <div class="cell cell--text">
-      <h2 class="cell__title oh">
-        <span class="oh__inner">{{ cellText }}</span>
-      </h2>
-    </div>
-    <div class="cell cell--images">
-      <div
-        v-for="(image, index) in cellImages"
-        :key="`cell-image-${cellText}-${index}`"
-        class="cell__img"
-        :data-img="image.filename"
-      >
-        <div class="cell__img-inner" :style="`background-image: url(${image.filename})`"></div>
+  <div class="row-parent" :class="{ '-pink': index % 2 === 0, '-blue': index % 2 !== 0 }">
+    <div class="row" :class="{ '-pink': index % 2 === 0, '-blue': index % 2 !== 0 }">
+      <div class="cell cell--text">
+        <h2 class="cell__title oh">
+          <span class="oh__inner">{{ cellText }}</span>
+        </h2>
       </div>
+      <div class="cell cell--images">
+        <div
+          v-for="(image, index) in cellImages"
+          :key="`cell-image-${cellText}-${index}`"
+          class="cell__img"
+          :data-img="image.filename"
+        >
+          <div class="cell__img-inner" :style="`background-image: url(${image.filename})`"></div>
+        </div>
+      </div>
+      <div class="cell cell--year">{{ year }}</div>
     </div>
-    <div class="cell cell--year">{{ year }}</div>
+    <Marquee :row-index="index" :hashtags="hashtags" />
   </div>
 </template>
 
@@ -62,15 +71,17 @@ const props = defineProps({
     border-top: 1px solid $color-row-border-blue;
   }
 
-  &:nth-of-type(n) {
-    &:hover {
-      background-color: $color-bg-row-hover-blue;
+  &-parent {
+    &:nth-of-type(n) {
+      &:hover {
+        background-color: $color-bg-row-hover-blue;
+      }
     }
-  }
 
-  &:nth-of-type(2n) {
-    &:hover {
-      background-color: $color-bg-row-hover-pink;
+    &:nth-of-type(2n) {
+      &:hover {
+        background-color: $color-bg-row-hover-pink;
+      }
     }
   }
 

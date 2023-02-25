@@ -18,6 +18,8 @@ export class Row {
     images: null,
     // (.cell--year)
     year: null,
+    // (.marquee)
+    marquee: null,
     allImages: null,
   };
 
@@ -33,6 +35,7 @@ export class Row {
     this.DOM.imagesWrap = this.DOM.el.querySelector('.cell--images');
     this.DOM.images = [...this.DOM.imagesWrap.querySelectorAll('.cell__img')];
     this.DOM.year = this.DOM.el.querySelector('.cell--year');
+    this.DOM.marquee = this.DOM.el.parentElement.querySelector('.marquee');
     this.DOM.allImages = [...this.DOM.images, ...this.previewItem.DOM.images];
   }
 }

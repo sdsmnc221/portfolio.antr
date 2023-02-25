@@ -66,6 +66,17 @@ const initAnim = () => {
         .timeline()
         .addLabel('start', 0)
         .to(
+          row.DOM.marquee,
+          {
+            height: 'auto',
+            scaleY: 1,
+
+            duration: 0.4,
+            ease: 'expo',
+          },
+          'start'
+        )
+        .to(
           row.DOM.year,
           {
             duration: 0.4,
@@ -127,6 +138,17 @@ const initAnim = () => {
       gsap
         .timeline()
         .addLabel('start')
+        .to(
+          row.DOM.marquee,
+          {
+            height: 0,
+            scaleY: 0,
+
+            duration: 0.4,
+            ease: 'expo',
+          },
+          'start'
+        )
         .to(
           row.DOM.year,
           {
@@ -204,7 +226,6 @@ const initAnim = () => {
               height: row.DOM.el.offsetHeight - 1, // minus border width
               top: row.DOM.el.getBoundingClientRect()['top'],
               opacity: 1,
-              minHeight: '240vh',
             });
 
             gsap.set(row.previewItem.DOM.title, {
@@ -234,6 +255,7 @@ const initAnim = () => {
             ease: 'power4.inOut',
             height: window.innerHeight,
             top: 0,
+            onComplete: () => (cover.style.minHeight = '240vh'),
           },
           'start'
         )
@@ -406,6 +428,7 @@ const initAnim = () => {
           ease: 'power4',
           height: 0, //,row.DOM.el.offsetHeight-1, // minus border width
           top: row.DOM.el.getBoundingClientRect()['top'] + row.DOM.el.offsetHeight / 2,
+          onStart: () => (cover.style.minHeight = 0),
         },
         'start+=0.4'
       )
@@ -457,6 +480,7 @@ watch(
       :cell-images="project.rowImages"
       :year="project.year"
       :index="index"
+      :hashtags="project.previewHashtags"
       @click="setActiveRow(index)"
     />
   </section>
