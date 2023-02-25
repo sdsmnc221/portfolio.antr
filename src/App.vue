@@ -1,4 +1,5 @@
 <script setup>
+import Loader from '@elements/Loader.vue';
 import Intro from '@elements/Intro.vue';
 import RowGrid from '@modules/RowGrid/RowGrid.vue';
 import Outro from '@elements/Outro.vue';
@@ -36,34 +37,33 @@ setTimeout(() => {
 
 const prismic = usePrismic();
 
-watch(doc, async (newVal) => {
+watch(doc, (newVal) => {
   if (newVal.value && newVal.value.data) {
-    projects.value = await projectsAdapter(newVal.value.data.projects, prismic);
-    intro.value = introAdapter(
-      newVal.value.data.body.find((slice) => slice.slice_type === 'intro'),
-      prismic
-    );
-    outro.value = outroAdapter(
-      newVal.value.data.body.find((slice) => slice.slice_type === 'outro'),
-      newVal.value.tags
-    );
+    setTimeout(async () => {
+      projects.value = await projectsAdapter(newVal.value.data.projects, prismic);
+      intro.value = introAdapter(
+        newVal.value.data.body.find((slice) => slice.slice_type === 'intro'),
+        prismic
+      );
+      outro.value = outroAdapter(
+        newVal.value.data.body.find((slice) => slice.slice_type === 'outro'),
+        newVal.value.tags
+      );
+    }, 4800);
   }
 });
 </script>
 
 <template>
-  <main>
+  <main v-if="projects.length > 0">
     <Intro v-if="intro" v-bind="intro" />
     <RowGrid :data="projects" />
     <Outro v-if="outro" v-bind="outro" />
   </main>
+
+  <Transition name="fade">
+    <Loader v-if="projects.length === 0" />
+  </Transition>
 </template>
 
-<style>
-@media screen and (min-width: 61em) {
-  :root {
-    --padding-sides: 4rem;
-    --padding-row: 2rem;
-  }
-}
-</style>
+<style></style>
