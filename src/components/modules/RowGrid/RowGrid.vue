@@ -589,21 +589,12 @@ watch(
     font-size: clamp(1.2rem, 4vw, 2.8rem);
     position: relative;
     line-height: 1;
-    font-family: $roboto-mono;
+    font-family: $ibm-plex;
     font-weight: var(--font-weight);
     white-space: nowrap;
     text-transform: uppercase;
     transition: all 0.5s;
     animation: weight var(--weight-animation) ease-in-out infinite alternate;
-
-    @keyframes weight {
-      0% {
-        text-shadow: 0px 0px 0 $color-text, 0px 0px 0 $color-text, 0px 0px 0 $color-text, 0px 0px 0 $color-text;
-      }
-      100% {
-        text-shadow: -1px -1px 0 $color-text, 1px -1px 0 $color-text, -1px 1px 0 $color-text, 1px 1px 0 $color-text;
-      }
-    }
 
     &--switch {
       font-family: $major-mono;

@@ -124,7 +124,7 @@ const props = defineProps({
       margin: 0;
       position: relative;
       line-height: 1;
-      font-family: $roboto-mono;
+      font-family: $ibm-plex;
       font-weight: var(--font-weight);
       text-transform: uppercase;
       white-space: nowrap;
