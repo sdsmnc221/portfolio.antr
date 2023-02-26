@@ -59,6 +59,8 @@ const animTerms = (textNode, shuffleNode, oldTerm = '') => {
   textNode.innerHTML = '';
 };
 
+const scrollContentToView = () => document.body.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
+
 onMounted(() => {
   if (introText.value) {
     const mainNode = introText.value.querySelector('strong em');
@@ -84,6 +86,10 @@ onMounted(() => {
   <header class="intro" :style="`--ch: ${ch}ch;}`">
     <div class="intro__head" v-html="head"></div>
     <div class="intro__text" v-html="shortText" ref="introText"></div>
+    <div class="intro__down" @click="scrollContentToView">
+      <span class="arrow">&#8595;</span>
+      <span class="text">SELECTED WORKS</span>
+    </div>
     <img class="intro__decor" src="/img/grid.svg" alt="" />
   </header>
 </template>
@@ -174,7 +180,77 @@ onMounted(() => {
     user-select: none;
   }
 
+  &__down {
+    display: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    font-weight: 400;
+    line-height: 1;
+    padding: 2rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    font-family: $montserrat;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .arrow {
+      position: relative;
+      font-size: $ft-s-xlarge;
+      padding: 1.4rem;
+      padding-top: 1.2rem;
+      margin-bottom: 1rem;
+      width: 12vw;
+      height: 12vw;
+      color: $color-link-blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120%;
+        height: 120%;
+        border-radius: 100%;
+        border: 1px solid $color-light-pink;
+        animation: blink 0.4s linear infinite;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 160%;
+        height: 160%;
+        border-radius: 100%;
+        border: 1px solid $color-light-blue;
+      }
+    }
+
+    .text {
+      position: absolute;
+      top: 33%;
+      right: 27%;
+      font-size: 0.48rem;
+      display: block;
+      background-color: $color-link-blue;
+      color: $color-bg;
+      padding: 0.1rem;
+    }
+  }
+
   @media #{$mq-mobile} {
+    height: 100vh;
+
     &__head {
       h1 {
         font-size: $ft-s-small;
@@ -187,6 +263,7 @@ onMounted(() => {
 
     &__text {
       max-width: 84vw;
+
       p,
       p strong,
       p strong em {
@@ -196,6 +273,10 @@ onMounted(() => {
       p em {
         font-size: $ft-s-medium;
       }
+    }
+
+    &__down {
+      display: flex;
     }
   }
 }
