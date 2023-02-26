@@ -115,7 +115,7 @@ onMounted(() => {
   }
 
   &__text {
-    max-width: 64vw;
+    max-width: 66vw;
     position: relative;
 
     padding: 1rem;
@@ -158,7 +158,7 @@ onMounted(() => {
       em {
         font-style: normal;
         font-family: $pinyon;
-        font-size: $ft-s-medium;
+        font-size: calc($ft-s-medium * 1.2);
         color: $color-link-pink;
       }
     }
