@@ -40,6 +40,6 @@ const shuffle = ([...arr]) => {
 
 const randomFontWeight = () => sample(shuffle([100, 200, 300, 400, 500, 600, 700]));
 
-const randomDuration = (min = 2.4, max = 4.8) => randomNumberInRange(min, max);
+const randomDuration = (min = 1.2, max = 2.4) => randomNumberInRange(min, max);
 
 export { preloadImages, preloadFonts, randomNumberInRange, sample, shuffle, randomDuration, randomFontWeight };
