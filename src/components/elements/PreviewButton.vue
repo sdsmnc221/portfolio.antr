@@ -79,7 +79,6 @@ const splitTextLabel = props.label.split(' ');
   opacity: 1;
   font-size: 1.3rem;
   transition: 0.2s;
-  margin-left: 4px;
   font-family: 'Montserrat', sans-serif;
 }
 
