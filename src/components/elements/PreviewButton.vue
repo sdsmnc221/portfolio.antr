@@ -45,6 +45,7 @@ const splitTextLabel = props.label.split(' ');
   background: none;
   position: relative;
   display: block;
+  text-shadow: none;
 }
 
 .preview-button > div,

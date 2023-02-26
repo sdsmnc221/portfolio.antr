@@ -18,7 +18,7 @@ export default defineConfig(({ command, mode }) => {
       vue(),
       VitePluginFonts({
         google: {
-          families: ['Montserrat', 'Major Mono Display', 'Yeseva One'],
+          families: ['Montserrat', 'Major Mono Display', 'Yeseva One', 'IBM Plex Mono'],
         },
       }),
       VitePluginRadar({

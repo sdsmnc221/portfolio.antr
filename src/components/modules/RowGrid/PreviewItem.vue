@@ -3,6 +3,8 @@ import PreviewButton from '@elements/PreviewButton.vue';
 import PreviewContent from '@elements/PreviewContent.vue';
 import Tag from '@elements/Tag.vue';
 
+import { randomFontWeight, randomDuration } from '@utils';
+
 const props = defineProps({
   previewTitle: {
     type: String,
@@ -45,7 +47,10 @@ const props = defineProps({
 
 <template>
   <div class="preview__item" :style="`--nb-row: ${Math.ceil(nbImages / 4)};`">
-    <h2 class="preview__item-title oh">
+    <h2
+      class="preview__item-title oh"
+      :style="`--font-weight: ${randomFontWeight()}; --weight-animation: ${randomDuration()}s`"
+    >
       <span class="oh__inner">{{ previewTitle }}</span>
       <PreviewButton
         v-if="previewLink"
@@ -113,14 +118,18 @@ const props = defineProps({
     }
 
     &-title {
+      --font-weight: 100;
+      --weight-animation: 0.4s;
+
       margin: 0;
       position: relative;
       line-height: 1;
-      font-family: $yeseva-one;
+      font-family: $roboto-mono;
+      font-weight: var(--font-weight);
       text-transform: uppercase;
       white-space: nowrap;
-      font-weight: 700;
       font-size: clamp(1.563rem, 6vw, 3.815rem);
+      animation: weight var(--weight-animation) ease-in-out infinite alternate;
     }
   }
 

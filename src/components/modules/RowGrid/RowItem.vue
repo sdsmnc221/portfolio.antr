@@ -1,6 +1,8 @@
 <script setup>
 import Marquee from '@elements/Marquee.vue';
 
+import { randomFontWeight, randomDuration } from '@utils';
+
 const props = defineProps({
   cellText: {
     type: String,
@@ -29,7 +31,10 @@ const props = defineProps({
   <div class="row-parent" :class="{ '-pink': index % 2 === 0, '-blue': index % 2 !== 0 }">
     <div class="row" :class="{ '-pink': index % 2 === 0, '-blue': index % 2 !== 0 }">
       <div class="cell cell--text">
-        <h2 class="cell__title oh">
+        <h2
+          class="cell__title oh"
+          :style="`--font-weight: ${randomFontWeight()}; --weight-animation: ${randomDuration()}s`"
+        >
           <span class="oh__inner">{{ cellText }}</span>
         </h2>
       </div>
@@ -101,7 +106,12 @@ const props = defineProps({
       top: 50%;
       right: 4vw;
       transform: translateY(-50%);
-      font-family: $yeseva-one;
+      font-family: $roboto-mono;
+
+      @media #{$mq-mobile} {
+        right: 8vw;
+        font-size: $ft-s-xxsmall;
+      }
     }
     &--images {
       pointer-events: none;
