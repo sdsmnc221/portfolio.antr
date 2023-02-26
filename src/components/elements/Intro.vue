@@ -132,7 +132,6 @@ onMounted(() => {
       left: -100%;
       mix-blend-mode: overlay;
       opacity: 1;
-      transition: all ease 0.4s;
     }
 
     p {

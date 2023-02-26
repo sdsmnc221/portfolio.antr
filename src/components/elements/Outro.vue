@@ -135,6 +135,7 @@ const props = defineProps({
           mix-blend-mode: overlay;
           border-radius: 32px;
           pointer-events: none;
+          opacity: 1;
         }
 
         &:hover {

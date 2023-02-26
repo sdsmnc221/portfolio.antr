@@ -27,8 +27,9 @@ body {
 
   &.-hide-gradient {
     &::after,
-    .intro__text::after {
-      opacity: 0;
+    .intro__text::after,
+    .outro__hashtags_title::after {
+      opacity: 0 !important;
     }
   }
 
