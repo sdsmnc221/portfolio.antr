@@ -106,7 +106,7 @@ const props = defineProps({
       top: 50%;
       right: 4vw;
       transform: translateY(-50%);
-      font-family: $roboto-mono;
+      font-family: $ibm-plex;
 
       @media #{$mq-mobile} {
         right: 8vw;

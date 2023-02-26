@@ -28,16 +28,14 @@ const props = defineProps({
       font-size: $ft-s-xlarge;
       margin-top: 0;
 
-      strong,
-      em {
+      strong {
+        color: $color-link-blue;
         font-weight: 700;
       }
 
-      strong {
-        color: $color-link-blue;
-      }
-
       em {
+        font-family: $pinyon;
+        font-size: calc($ft-s-xlarge * 1.4);
         font-style: normal;
         color: $color-link-pink;
         display: block;
@@ -72,17 +70,15 @@ const props = defineProps({
       line-height: $ft-s-medium;
       margin-top: 0.48rem;
 
-      strong,
-      em {
-        font-weight: 700;
-      }
-
       strong {
         color: $color-link-blue;
+        font-weight: 700;
       }
 
       em {
         font-style: normal;
+        font-family: $pinyon;
+        font-size: $ft-s-medium;
         color: $color-link-pink;
       }
     }
@@ -103,6 +99,10 @@ const props = defineProps({
     &__head {
       h1 {
         font-size: $ft-s-small;
+
+        em {
+          font-size: calc($ft-s-large * 0.88);
+        }
       }
     }
 
