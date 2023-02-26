@@ -360,6 +360,7 @@ const initAnim = () => {
         onStart: () => {
           body.classList.remove('oh', '-hide-gradient');
           row.DOM.el.classList.remove('row--current');
+          closeCtrl.classList.remove('preview__close--show');
         },
         onComplete: () => {
           row.previewItem.DOM.el.classList.remove('preview__item--current');
