@@ -118,7 +118,7 @@ onMounted(() => {
     max-width: 66vw;
     position: relative;
 
-    padding: 1rem;
+    padding: 1rem 1.3rem;
     background-color: white;
 
     &::after {
