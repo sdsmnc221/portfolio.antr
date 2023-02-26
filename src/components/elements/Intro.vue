@@ -193,6 +193,10 @@ onMounted(() => {
       p strong em {
         font-size: $ft-s-xsmall;
       }
+
+      p em {
+        font-size: $ft-s-medium;
+      }
     }
   }
 }
