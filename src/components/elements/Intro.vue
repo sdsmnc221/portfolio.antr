@@ -41,7 +41,7 @@ const animTerms = (textNode, shuffleNode, oldTerm = '') => {
 
   const anim = () => {
     inc++;
-    if (inc % 2 === 0 && out < str.length) {
+    if (inc % 4 === 0 && out < str.length) {
       textNode.appendChild(document.createTextNode(str[out]));
       shuffleNode.innerHTML = '';
       out++;
