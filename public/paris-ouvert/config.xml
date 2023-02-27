@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="paris.ouvert.mmi.champs" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Paris OuVert</name>
+    <description>L'application qui vous apprendra à découvrir un Paris plus vert ( et plus ouvert ).</description>
+    <author email="hello@parisouvert.com" href="http://parisouvert.com">Team Paris Ou'Vert</author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-navigation href="http://172.22.154.254:8101" />
+    <preference name="ScrollEnabled" value="false" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="BackupWebStorage" value="none" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="FadeSplashScreenDuration" value="1000" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="true"/>
+    <preference name="SplashScreen" value="screen.png" />
+    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="SplashScreenBackgroundColor" value="#1EBA73" />
+    <preference name="SplashScreenWidth" value="320" /> 
+    <preference name="SplashScreenHeight" value="518" />
+</widget>
