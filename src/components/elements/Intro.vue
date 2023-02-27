@@ -217,7 +217,6 @@ onMounted(() => {
         transform: translate(-50%, -50%);
         width: 120%;
         height: 120%;
-        border-radius: 100%;
         border: 1px solid $color-light-pink;
         animation: blink 0.4s linear infinite;
       }
@@ -228,10 +227,9 @@ onMounted(() => {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        width: 160%;
-        height: 160%;
-        border-radius: 100%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 140%;
+        height: 140%;
         border: 1px solid $color-light-blue;
       }
     }
