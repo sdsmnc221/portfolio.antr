@@ -236,7 +236,7 @@ onMounted(() => {
 
     .text {
       position: absolute;
-      top: 33%;
+      top: 35%;
       right: 27%;
       font-size: 0.48rem;
       display: block;
