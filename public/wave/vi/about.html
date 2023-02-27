@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>WAVE DASHBOARD</title>
+  <meta name="author" content="Êkíp WAVE, BTS SN & Licence Professionnelle SEME trực thuộc UBO - La Croix Rouge La Salle Brest" />
+  <meta name="description" content="Giao diện thông tin của hệ thống giám sát WAVE" />
+  <meta name="keywords" content="wave, WAVE, BTS SN, Licence pro SEME, UBO, La Croix Rouge, ABGRALL Emilien, PICARD Guénolé, LOHEZIC Florian, BERGOT Raphaël, TRUONG Quang Dung, An TRUONG" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../styles/index.css">
+</head>
+<body>
+  <div class="app container-fluid">
+    <div class="row">
+
+      <nav class="menu col-12 col-md-3 col-lg-2 d-flex flex-column justify-content-between">
+          <div class="logo d-flex justify-content-center align-items-center">
+            <a href="index.html"><img src="../images/logo.svg" alt="WAVE Dashboard"></a>
+          </div>
+
+          <ul class="nav flex-column">
+            <li>
+              <p><img src="../images/dashboard.svg" alt="">Dashboard</p>
+              <ul class="nav__section">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">
+                    <img src="../images/overview.svg" alt="">
+                    Live Overview
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="details.html">
+                    <img src="../images/graph.svg" alt="">
+                    Dữ liệu & Biểu đồ
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+                <p><img src="../images/info.svg" alt="">Thông tin</p>
+                <ul class="nav__section">
+                  <li class="nav-item">
+                    <a class="nav-link nav-link-active" href="about.html">
+                      <img src="../images/about.svg" alt="">
+                      Về WAVE 
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">
+                      <img src="../images/contact.svg" alt="">
+                      Liên lạc
+                    </a>
+                  </li>
+                </ul>
+            </li>
+          </ul>
+
+          <div class="controller d-flex justify-content-between align-items-center">
+              <div class="controller__lang dropup">
+                <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  VI
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item active" href="../vi/">VI</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="../fr/">FR</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="../en/">EN</a>
+                </div>
+              </div>
+              <button type="button" class="controller__sidebar" title="Ẩn thanh sidebar"></button>
+          </div>
+      </nav>
+      
+      <div id="barba-wrapper" class="col-12 col-md-9 col-lg-10">
+        <div class="main barba-container col-12">
+            <header class="header row d-flex justify-content-between align-items-center">
+              <nav aria-label="breadcrumb">
+                <h1 class="d-flex align-items-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Thông tin</li>
+                        <li class="breadcrumb-item active">Về WAVE</li>
+                      </ol>
+                </h1>
+              </nav>
+  
+              <div class="controller d-flex justify-content-center align-items-center">
+                  <button type="button" class="controller__sidebar invisible" title="Hiện thanh sidebar"></button>
+                  <button type="button" class="controller__refresh d-flex justify-content-center align-items-center" title="Tải lại" disabled><img src="../images/settings.svg" alt="Tải lại"></button>
+              </div>
+            </header>
+  
+            <section class="content row">
+  
+              <div class="col-12 col-lg-6">
+  
+                <section class="card row">
+                  <header class="col-12">
+                    <h2>Dự Án</h2>
+                  </header>
+                  <section class="card__text col-12">
+                      <p>Một trong những nguồn thu nhập chính của tỉnh Bà Rịa trực thuộc miền Nam Việt Nam đến từ ngành nuôi trồng thuỷ hải sản ven biển. Tuy nhiên, thời gian gần đây, sản lượng nuôi trồng bị suy giảm nghiêm trọng do ô nhiễm môi trường gây ra bởi các hoạt động của con người.</p>
+                      <p>Trên tiền đề đó, dự án WAVE được triển khai để có thể kịp thời can thiệp tình hình cũng như tìm kiếm giải pháp bảo vệ nguồn lợi thuỷ hải sản. Là kết quả của sự hợp tác giữa UBO, khối trường học La Croix Rouge La Salle Brest (France) và trường Đại học Bà Rịa - Vũng Tàu (Việt Nam), dự án tập trung chủ yếu vào việc phát triển một hệ thống giám sát các thông số nước biển không dây, phục vụ chính cho ngành nuôi trồng thuỷ sản ở Việt Nam. Có thể nói rằng đây là một dự án khoa học đa ngành, có sự kết hợp chặt chẽ giữa khoa học điện tử, tin học, cơ khí, tự động hoá cũng như hóa sinh.</p>
+                      <p>Dự án được triển khai trong hai năm học từ 2016 tới 2018. Năm 2017, dự án được thực hiện bởi các sinh viên ngành BTS Systèmes Numériques (BTS SN) của trường La Croix Rouge. Năm 2018, dự án tiếp tục được thực hiện bởi sinh viên ngành Licence professionnelle SEME (Systèmes d’Electronique Marine Embarqués) dưới sự chỉ đạo của thầy Claude VO, giáo sư BTS SN kiêm giảng viên Licence Pro SEME, và thầy Philippe TALBOT, giáo viên phụ trách LP SEME.</p>
+                  </section>
+                </section>
+
+                <section class="card row">
+                  <header class="col-12">
+                    <h2>Hệ thống</h2>
+                  </header>
+                  <section class="card__text col-12">
+                      <p>Bơm số 1 bơm nước vào bể đo để tiến hành phân tích các thông số. Sau khi phân tích xong, thông số sẽ được các máy cảm biến gửi tới hộp điều khiển điện tử bằng sóng ra-đi-ô và GSM. Tại đây, các thông số sẽ được cập nhật vào cơ sở dữ liệu của hệ thống và có thể truy cập thông qua giao diện máy tính và server web.</p>
+                      <p>Tiếp đó, quá trình làm sạch bể đo diễn ra: van điện tử rút hết nước trong bể, để bơm số 2 có thể bơm nước ngọt (sạch) từ thùng chứa vào bể và các mô-tơ có thể tiến hành làm sạch các máy cảm biến. Sau khi làm sạch xong, van điện tử lại rút hết nước từ bể đi, lượt đo mới lại có thể bắt đầu. Quá trình đo nước biển được tự động hoá nhờ vào việc cài đặt tần suất đo của hệ thống .</p>
+                      <p>mHệ thống đo thông số nước biển hoạt động bằng năng lượng mặt trời. Hộp điện tử có màn hình LCD và nút xoay để tiện cho việc tra cứu dữ liệu, hiệu chuẩn máy cảm biến, tần suất của quá trình đo cũng như các phương thức truyền phát dữ liệu (GSM/sóng ra-đi-ô).</p>
+                  </section>
+                </section>
+
+              </div>
+  
+              <section class="card col-12 col-lg-5 offset-lg-1">
+
+                <section class="card__text col-12">
+                  <figure class="card__carousel d-flex justify-content-center align-items-center">
+                    <img src="../images/logo2.svg" alt="Logo của WAVE.">
+                  </figure>
+                  <figure class="card__carousel d-flex justify-content-center align-items-center">
+                        <img src="../images/system2.png" alt="Hệ thống cơ học dùng để phân tích nước biển.">
+                  </figure>
+                  <figure class="card__carousel d-flex justify-content-center align-items-center">
+                        <img src="../images/system1.png" alt="Toàn bộ hệ thống WAVE.">
+                  </figure>
+                </section>
+              </section>
+  
+              </section>
+            </div>
+          </section>
+        </div>
+      </div>
+        
+
+    </div>
+  </div>
+
+  <script src="../libs/bundle.min.js"></script>
+  <script src="../scripts/app.min.js"></script>
+</body>
+</html>

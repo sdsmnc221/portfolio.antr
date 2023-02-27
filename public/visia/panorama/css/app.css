@@ -1,0 +1,336 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);body,
+* {
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+}
+
+h2 {
+  font-size: 1.4rem !important;
+}
+
+.hide {
+  display: none;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  margin: 0 !important;
+}
+
+.app .app__preloader {
+  display: none !important;
+}
+
+.app .app__sidebar {
+  padding-top: 0 !important;
+  overflow-y: scroll;
+  overflow-x: visible !important;
+}
+
+.app .app__sidebar * {
+  overflow-x: visible !important;
+  color: #fff !important;
+}
+
+.app .app__sidebar div.item {
+  height: 10vh;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.app .app__sidebar .item {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+.app .app__sidebar .item.active {
+  border-color: #fff !important;
+}
+
+.app .app__sidebar ul.list {
+  font-size: 1.2rem;
+}
+
+.app__wrapper {
+  padding-top: 0 !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.app__wrapper .app__header {
+  width: 100%;
+  height: 10vh;
+  margin: 0 !important;
+}
+
+.app__wrapper .app__header .item.breadcrumb {
+  max-width: 80%;
+  word-wrap: normal;
+}
+
+.app__wrapper .app__header .item.toolbar {
+  max-width: 20%;
+}
+
+.app__wrapper .app__header .item.toolbar .item.user button {
+  padding: 1.5rem !important;
+  margin-left: 2rem;
+}
+
+.app__content {
+  padding: 0 10px 20px 10px;
+}
+
+.app__content > .menu {
+  margin-top: 0 !important;
+}
+
+.app__content .cu .or:before {
+  content: 'ou' !important;
+}
+
+.app__content .cu .icon {
+  margin: 0 0.9rem !important;
+}
+
+.app__content .dashboard__overview .grid .column:hover .cu {
+  margin-top: -10%;
+}
+
+.app__content .dashboard__overview .name.label {
+  position: relative;
+  z-index: 1;
+  width: 120%;
+  height: 80%;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translate(0, -30px);
+          transform: translate(0, -30px);
+}
+
+.app__content .dashboard__overview .name.label .icon {
+  display: block;
+  margin: 0;
+}
+
+.app__content .dashboard__overview .cu {
+  position: relative;
+  z-index: 0;
+  width: 120%;
+  margin-top: -50%;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.app__content .dashboard__overview .cu .buttons {
+  width: 100%;
+}
+
+.app__content .dashboard__overview__data {
+  padding: 20px 10px 20px 30px !important;
+}
+
+.app__content .dashboard__overview__data h3 {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.app__content .dashboard__overview__data p.segment {
+  padding: 10px 0 0 0;
+  font-weight: bold;
+  font-size: 2.1rem;
+}
+
+.app__content .dashboard__overview__data p.label {
+  display: block;
+  width: 85%;
+  margin: 5px auto;
+  text-align: center;
+}
+
+.app__content .dashboard__overview__data p.label .venus.icon {
+  margin-right: 3px;
+}
+
+.app__content .dashboard__stats .column {
+  margin-top: -10px;
+}
+
+.app__content .dashboard__stats p.segment {
+  height: 30vh;
+}
+
+.app__content form .form__content .popup {
+  top: 0 !important;
+  font-size: 1.2rem;
+  color: red;
+}
+
+.app__content form .form__btns .or:before {
+  content: 'ou' !important;
+}
+
+.app__content form .form__btns .button {
+  position: relative;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+
+.app__content form .form__btns .button.add {
+  display: table !important;
+}
+
+.app__content form .form__btns .button.add::after {
+  content: '1';
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 20px;
+  font-size: 1.2rem;
+}
+
+.app__content form .form__btns .button.submit.disabled {
+  cursor: not-allowed !important;
+  pointer-events: auto !important;
+}
+
+.app__content form .form__btns .button.upload {
+  position: relative;
+  display: block !important;
+}
+
+.app__content form .form__btns .button.upload input[type="file"] {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.app__content form .form__btns .button .icon {
+  margin: 0 0.9rem !important;
+}
+
+.app__content form .form__btns .button .icon.plus {
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+}
+
+.app__content form .form__file__toolbar,
+.app__content form .form__file__data {
+  min-height: 100px;
+}
+
+.app__content form .form__file__toolbar .segment,
+.app__content form .form__file__data .segment {
+  width: 100%;
+  height: 100%;
+}
+
+.app__content .modals .modal {
+  -webkit-transform: translateY(55%);
+          transform: translateY(55%);
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+
+.app__content .modals .modal__header {
+  font-size: 1.6rem;
+}
+
+.app__content .modals .modal__content {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.app__content .modals .modal .actions {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.app__content .modals .modal .actions button {
+  width: 40% !important;
+  margin: 0 !important;
+  -webkit-transition: all ease 0.2s;
+  transition: all ease 0.2s;
+}
+
+.app__content table {
+  width: 100%;
+}
+
+.app__content table thead th {
+  white-space: normal !important;
+  word-break: break-word;
+}
+
+.app__content table thead th:first-child {
+  border-left: 1px solid rgba(34, 36, 38, 0.1) !important;
+}
+
+.app__content table thead th:last-child {
+  border-right: 1px solid rgba(34, 36, 38, 0.1);
+}
+
+.app__content table thead th.expanded {
+  width: 35px !important;
+}
+
+.app__content table thead th.collapsed {
+  width: 1% !important;
+}
+
+.app__content table tbody.tab.active {
+  display: table-row-group !important;
+}
+
+.app__content table tbody tr {
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.app__content .toolbar .filter {
+  -webkit-transition: all ease 0.6s;
+  transition: all ease 0.6s;
+}
+
+.app__content .toolbar .filter + .popup.visible .header {
+  margin: 0 !important;
+  font-size: 1.2rem !important;
+}
+
+.app__content .toolbar .filter + .popup.visible .label {
+  padding-left: 1.6rem !important;
+}
+
+.app__content .toolbar .filter + .popup.visible .list {
+  padding: 0 0 0.5rem 10px !important;
+}
+
