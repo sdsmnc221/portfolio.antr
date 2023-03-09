@@ -21,7 +21,7 @@ class APICore {
     public function make_db() {
         header("Access-Control-Allow-Origin: *");
         global $pdo;
-        $host = "localhost";
+        $host = "mysql.hostinger.com";
         $port = "";
         $db   = "u850201821_wave";
         $user = "u850201821_awave";
