@@ -22,7 +22,7 @@ class APICore {
         header("Access-Control-Allow-Origin: *");
         global $pdo;
         $host = "sql491.main-hosting.eu";
-        $port = "";
+        $port = "3306";
         $db   = "u850201821_wave";
         $user = "u850201821_awave";
         $pass = "AnTR.tech/wave-2023";
