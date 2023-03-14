@@ -10,15 +10,7 @@
     "lint": "eslint ./src --ext .js,.vue --fix --ignore-path .gitignore",
     "lint:style": "stylelint 'src/**/*.{vue,scss}' --fix --ignore-path .gitignore"
   },
-  "dependencies": {
-    "@prismicio/client": "^6.7.3",
-    "@prismicio/vue": "^3.1.2",
-    "gsap": "^3.11.4",
-    "gsap-bonus": "file:gsap-bonus.tgz",
-    "imagesloaded": "^5.0.0",
-    "sass-rem": "^3.0.0",
-    "vue": "^3.2.45"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
@@ -35,6 +27,13 @@
     "stylelint-config-standard-scss": "^6.1.0",
     "vite": "^4.1.0",
     "vite-plugin-fonts": "^0.7.0",
-    "vite-plugin-radar": "^0.7.0"
+    "vite-plugin-radar": "^0.7.0",
+    "@prismicio/client": "^6.7.3",
+    "@prismicio/vue": "^3.1.2",
+    "gsap": "^3.11.4",
+    "gsap-bonus": "file:gsap-bonus.tgz",
+    "imagesloaded": "^5.0.0",
+    "sass-rem": "^3.0.0",
+    "vue": "^3.2.45"
   }
 }
