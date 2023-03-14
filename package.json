@@ -17,7 +17,7 @@
     "@prismicio/client": "^6.7.3",
     "@prismicio/vue": "^3.1.2",
     "gsap": "^3.11.4",
-    "gsap-bonus": "file:gsap-bonus.zip",
+    "gsap-bonus": "file:gsap-bonus.tgz",
     "imagesloaded": "^5.0.0",
     "sass-rem": "^3.0.0",
     "vue": "^3.2.45"
