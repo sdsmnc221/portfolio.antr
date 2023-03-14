@@ -3,6 +3,7 @@ import { VitePluginFonts } from 'vite-plugin-fonts';
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { VitePluginRadar } from 'vite-plugin-radar';
+import ssr from 'vite-plugin-ssr/plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -28,6 +29,7 @@ export default defineConfig(({ command, mode }) => {
           disable: false,
         },
       }),
+      ssr(),
     ],
     resolve: {
       alias: {

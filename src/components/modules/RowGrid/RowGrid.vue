@@ -29,6 +29,7 @@ const resetPreviewImage = () => (bigImg.value = '');
 const setActiveRow = (index) => (activeRow.value = index);
 
 const initAnim = () => {
+  console.log('init');
   // preview Items
   const previewItems = [...document.querySelectorAll('.preview > .preview__item')];
   // initial rows
@@ -459,16 +460,16 @@ const initAnim = () => {
 };
 
 onMounted(() => {
-  // setTimeout(() => initAnim(), 1200);
-  window.addEventListener('trigger-anim', () => setTimeout(() => initAnim(), 1200));
+  setTimeout(() => initAnim(), 1200);
+  // window.addEventListener('trigger-anim', () => setTimeout(() => initAnim(), 1200));
 });
 
-watch(
-  () => props.data,
-  () => {
-    window.dispatchEvent(triggerAnim);
-  }
-);
+// watch(
+//   () => props.data,
+//   () => {
+//     window.dispatchEvent(triggerAnim);
+//   }
+// );
 </script>
 
 <template>
