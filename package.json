@@ -25,6 +25,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@magne4000/vite-plugin-vercel-ssr": "^0.1.4",
     "@rushstack/eslint-patch": "^1.2.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/eslint-config-prettier": "^7.0.0",
@@ -42,6 +43,7 @@
     "vite": "^4.1.0",
     "vite-plugin-fonts": "^0.7.0",
     "vite-plugin-radar": "^0.7.0",
-    "vite-plugin-ssr": "^0.4.94"
+    "vite-plugin-ssr": "^0.4.94",
+    "vite-plugin-vercel": "^0.1.6"
   }
 }
