@@ -8,7 +8,8 @@ import { Row } from './row';
 import { onMounted, ref, watch } from 'vue';
 
 import gsap from 'gsap-bonus';
-import { Flip } from 'gsap-bonus/Flip';
+import pkg from 'gsap-bonus/Flip.js';
+const { Flip } = pkg;
 gsap.registerPlugin(Flip);
 
 const triggerAnim = new CustomEvent('trigger-anim');
