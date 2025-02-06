@@ -29,48 +29,8 @@ export default defineConfig(({ command, mode }) => {
           disable: false,
         },
       }),
-      viteStaticCopy({
-        targets: [
-          {
-            src: 'public/*',
-            dest: '', // This will copy to root of dist
-          },
-          // If you need specific folders with their structure:
-          {
-            src: 'public/histoires-autrices/*',
-            dest: 'histoires-autrices',
-          },
-          {
-            src: 'public/img/*',
-            dest: 'img',
-          },
-          {
-            src: 'public/portfolio-v0/*',
-            dest: 'portfolio-v0',
-          },
-          {
-            src: 'public/portfolio-v1/*',
-            dest: 'portfolio-v1',
-          },
-          {
-            src: 'public/universea/*',
-            dest: 'universea',
-          },
-          {
-            src: 'public/vid/*',
-            dest: 'vid',
-          },
-          {
-            src: 'public/visia/*',
-            dest: 'visia',
-          },
-          {
-            src: 'public/*.pdf',
-            dest: '',
-          },
-        ],
-      }),
     ],
+
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),

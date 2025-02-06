@@ -79,7 +79,7 @@ const props = defineProps({
       </video>
     </div>
 
-    <div class="preview__hashtags" v-if="false">
+    <div class="preview__hashtags">
       <Tag v-for="(tag, index) in previewHashtags" :key="`hashtag-${previewTitle}-${tag}-${index}`" :text="tag" />
     </div>
   </div>
