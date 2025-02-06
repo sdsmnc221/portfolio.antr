@@ -34,7 +34,6 @@ p::after {
   width: 100%;
   height: 100%;
   padding: var(--border-width);
-  background-image: conic-gradient(#ff0080, #ff0080, #ff0080, #ff0080, #ff0080, #ff0080, #ff0080);
   -webkit-mask-image: var(--m-i), var(--m-i);
   mask-image: var(--m-i), var(--m-i);
   -webkit-mask-origin: var(--m-o);
@@ -86,7 +85,7 @@ p:hover {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgb(46, 46, 46);
+
   left: 0;
   top: 0;
   border-radius: 10px;
@@ -94,7 +93,17 @@ p:hover {
 
 .tag::before {
   content: '';
-  background: linear-gradient(45deg, #07d888, #e40851, #2f00ff, #00ff37, #ec0808, #2600ff, #0bd157, #2f00ff);
+  background: linear-gradient(
+    45deg,
+    #b5d8f0,
+    /* pastel blue */ #e8a5c6,
+    /* pastel pink/rose */ #b5c9e8,
+    /* light blue */ #e8bed3,
+    /* light rose */ #a5c0e8,
+    /* soft blue */ #e8c5d6,
+    /* soft pink */ #c5d8e8,
+    /* pale blue */ #e8d0db /* pale rose */
+  );
   position: absolute;
   top: -2px;
   left: -2px;

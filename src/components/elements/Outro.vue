@@ -36,6 +36,11 @@ const props = defineProps({
 <template>
   <footer class="outro">
     <div class="flex">
+      <div class="outro__hashtags">
+        <p class="outro__hashtags_title">{{ hashtagsTitle }}</p>
+        <Tag v-for="(tag, index) in hashtags" :key="`outro-hashtag-${tag}-${index}`" :text="tag" />
+      </div>
+
       <div class="outro__resume">
         <div class="container">
           <div class="box">
