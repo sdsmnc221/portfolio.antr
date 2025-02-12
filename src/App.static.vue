@@ -11,6 +11,8 @@ import outroAdapter from '@utils/prismic/outroAdapter';
 import { ref, watch } from 'vue';
 import { useSinglePrismicDocument, usePrismic } from '@prismicio/vue';
 
+import prismisStaticDoc from './assets/prismic-data.json';
+
 import '@/assets/scss/global/index.scss';
 
 const doc = ref(null);
@@ -18,40 +20,44 @@ const projects = ref([]);
 const intro = ref(null);
 const outro = ref(null);
 
-const { data } = useSinglePrismicDocument('homepage', {
-  fetchLinks: [
-    'project.title',
-    'project.row_images',
-    'project.preview_images',
-    'project.description',
-    'project.video',
-    'project.link',
-    'project.year',
-    'project.display_images',
-  ],
-});
+// const { data } = useSinglePrismicDocument('homepage', {
+//   fetchLinks: [
+//     'project.title',
+//     'project.row_images',
+//     'project.preview_images',
+//     'project.description',
+//     'project.video',
+//     'project.link',
+//     'project.year',
+//     'project.display_images',
+//   ],
+// });
 
 setTimeout(() => {
-  doc.value = data;
+  doc.value = prismisStaticDoc.homepage.results[0];
 }, 1000);
 
 const prismic = usePrismic();
 
-watch(doc, (newVal) => {
-  if (newVal.value && newVal.value.data) {
-    setTimeout(async () => {
-      projects.value = await projectsAdapter(newVal.value.data.projects, prismic);
-      intro.value = introAdapter(
-        newVal.value.data.body.find((slice) => slice.slice_type === 'intro'),
-        prismic
-      );
-      outro.value = outroAdapter(
-        newVal.value.data.body.find((slice) => slice.slice_type === 'outro'),
-        newVal.value.tags
-      );
-    }, 4800);
-  }
-});
+watch(
+  doc,
+  (newDoc) => {
+    if (newDoc && newDoc.data) {
+      setTimeout(async () => {
+        projects.value = await projectsAdapter(newDoc.data.projects, prismic);
+        intro.value = introAdapter(
+          newDoc.data.body.find((slice) => slice.slice_type === 'intro'),
+          prismic
+        );
+        outro.value = outroAdapter(
+          newDoc.data.body.find((slice) => slice.slice_type === 'outro'),
+          newDoc.tags
+        );
+      }, 4800);
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
