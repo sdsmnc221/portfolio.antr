@@ -103,6 +103,7 @@ p:hover {
     /* muted rust */ #dac8b6,
     /* soft sand */ #a37e57,
     /* golden brown */ #e2c5b3 /* light peach */
+
   );
   position: absolute;
   top: -2px;
