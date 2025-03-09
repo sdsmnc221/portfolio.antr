@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url';
-import { VitePluginFonts } from 'vite-plugin-fonts';
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { VitePluginRadar } from 'vite-plugin-radar';
@@ -17,11 +16,6 @@ export default defineConfig(({ command, mode }) => {
     },
     plugins: [
       vue(),
-      VitePluginFonts({
-        google: {
-          families: ['Montserrat', 'Major Mono Display', 'IBM Plex Mono', 'Pinyon Script'],
-        },
-      }),
       VitePluginRadar({
         // Google Analytics tag injection
         analytics: {
