@@ -33,10 +33,13 @@ export default defineConfig(({ command, mode }) => {
         '@utils': fileURLToPath(new URL('./src/utils', import.meta.url)),
       },
     },
+
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "./src/assets/scss/vars/index.scss";`,
+          additionalData: `
+            @import "@/assets/scss/vars/index.scss";
+          `.trim(),
         },
       },
     },
