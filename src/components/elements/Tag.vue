@@ -95,14 +95,14 @@ p:hover {
   content: '';
   background: linear-gradient(
     45deg,
-    #b5d8f0,
-    /* pastel blue */ #e8a5c6,
-    /* pastel pink/rose */ #b5c9e8,
-    /* light blue */ #e8bed3,
-    /* light rose */ #a5c0e8,
-    /* soft blue */ #e8c5d6,
-    /* soft pink */ #c5d8e8,
-    /* pale blue */ #e8d0db /* pale rose */
+    #d1b39f,
+    /* soft terracotta */ #e6d5c2,
+    /* light beige */ #c49768,
+    /* warm caramel */ #f2eae0,
+    /* pale cream */ #b5886a,
+    /* muted rust */ #dac8b6,
+    /* soft sand */ #a37e57,
+    /* golden brown */ #e2c5b3 /* light peach */
   );
   position: absolute;
   top: -2px;
