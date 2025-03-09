@@ -111,9 +111,10 @@ onMounted(() => {
       }
 
       em {
-        font-family: $pinyon;
+        font-family: $noto-serif;
         font-size: calc($ft-s-xlarge * 1.4);
         font-style: normal;
+        font-weight: 700;
         color: $color-link-pink;
         display: block;
       }
@@ -148,7 +149,7 @@ onMounted(() => {
 
       strong,
       strong em {
-        font-family: $montserrat;
+        font-family: $noto;
         font-size: $ft-s-small;
         font-weight: 700;
         color: $color-link-blue;
@@ -162,7 +163,7 @@ onMounted(() => {
 
       em {
         font-style: normal;
-        font-family: $pinyon;
+        font-family: $noto-serif;
         font-size: calc($ft-s-medium * 1.2);
         color: $color-link-pink;
       }
@@ -190,7 +191,7 @@ onMounted(() => {
     padding: 2rem;
     margin-top: 2rem;
     cursor: pointer;
-    font-family: $montserrat;
+    font-family: $noto;
     justify-content: center;
     align-items: center;
     flex-direction: column;
