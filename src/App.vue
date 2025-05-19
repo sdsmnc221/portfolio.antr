@@ -49,7 +49,7 @@ watch(doc, (newVal) => {
         newVal.value.data.body.find((slice) => slice.slice_type === 'outro'),
         newVal.value.tags
       );
-    }, 4800);
+    }, 2400);
   }
 });
 </script>

@@ -9,6 +9,7 @@ import { onMounted, ref, watch } from 'vue';
 
 import gsap from 'gsap-bonus';
 import { Flip } from 'gsap-bonus/Flip';
+import PreviewVideo from '../../elements/PreviewVideo.vue';
 gsap.registerPlugin(Flip);
 
 const triggerAnim = new CustomEvent('trigger-anim');
@@ -22,9 +23,13 @@ const props = defineProps({
 
 const bigImg = ref('');
 
+const bigVideo = ref('');
+
 const activeRow = ref(0);
 
 const resetPreviewImage = () => (bigImg.value = '');
+
+const resetPreviewVideo = () => (bigVideo.value = '');
 
 const setActiveRow = (index) => (activeRow.value = index);
 
@@ -49,6 +54,10 @@ const initAnim = () => {
   let isAnimating = false;
   let currentRow = -1;
   let mouseenterTimeline;
+
+  document.querySelector('.preview__video video')?.addEventListener('click', (e) => {
+    bigVideo.value = e.target.querySelector('source').getAttribute('src');
+  });
 
   for (const row of rowsArr) {
     row.DOM.allImages.forEach((cellImage) =>
@@ -273,7 +282,7 @@ const initAnim = () => {
           'start'
         )
         .add(() => {
-          mouseenterTimeline.progress(1, false);
+          mouseenterTimeline?.progress(1, false);
           const flipstate = Flip.getState(row.DOM.images, { simple: true });
           row.previewItem.DOM.grid.prepend(...row.DOM.images);
           Flip.from(flipstate, {
@@ -505,6 +514,10 @@ watch(
 
   <Transition name="fade">
     <PreviewImage v-if="bigImg" :img="bigImg" :on-click="resetPreviewImage" />
+  </Transition>
+
+  <Transition name="fade">
+    <PreviewVideo v-if="bigVideo" :video="bigVideo" :on-click="resetPreviewVideo" />
   </Transition>
 </template>
 
