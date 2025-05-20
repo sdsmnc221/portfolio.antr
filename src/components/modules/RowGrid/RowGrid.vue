@@ -10,7 +10,12 @@ import { onMounted, ref, watch } from 'vue';
 import gsap from 'gsap-bonus';
 import { Flip } from 'gsap-bonus/Flip';
 import PreviewVideo from '../../elements/PreviewVideo.vue';
+import { computed } from 'vue';
+import { nextTick } from 'vue';
+import { useRouter } from 'vue-router';
 gsap.registerPlugin(Flip);
+
+const router = useRouter();
 
 const triggerAnim = new CustomEvent('trigger-anim');
 
@@ -18,6 +23,10 @@ const props = defineProps({
   data: {
     type: Array,
     default: () => [],
+  },
+  project: {
+    type: String,
+    default: '',
   },
 });
 
@@ -27,11 +36,35 @@ const bigVideo = ref('');
 
 const activeRow = ref(0);
 
+const defaultActiveRow = computed(() => {
+  return props.data.findIndex((p) => p.uid === props.project);
+});
+
 const resetPreviewImage = () => (bigImg.value = '');
 
 const resetPreviewVideo = () => (bigVideo.value = '');
 
 const setActiveRow = (index) => (activeRow.value = index);
+
+watch(
+  () => defaultActiveRow.value,
+  () => {
+    if (defaultActiveRow.value !== -1) {
+      activeRow.value = defaultActiveRow.value;
+      nextTick(() => {
+        setTimeout(() => {
+          const activeRowElement = [...document.querySelectorAll('.row')][activeRow.value];
+
+          if (activeRowElement) {
+            // programmatically click on activeRowElement
+            activeRowElement.click();
+          }
+        }, 1200);
+      });
+    }
+  },
+  { immediate: true }
+);
 
 const initAnim = () => {
   // preview Items
@@ -352,6 +385,8 @@ const initAnim = () => {
 
   // Close the grid and show back the rows
   closeCtrl.addEventListener('click', () => {
+    router.replace('/');
+
     if (isAnimating) return;
     isAnimating = true;
 

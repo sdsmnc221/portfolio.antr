@@ -16,7 +16,7 @@ const updateProjects = ({ projects: projectsFromComponents }) => {
 <template>
   <main>
     <RouterView v-slot="{ Component }">
-      <component :is="Component" @update:projects="updateProjects"> </component>
+      <component :is="Component" @update:projects="updateProjects"></component>
     </RouterView>
   </main>
 

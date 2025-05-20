@@ -69,9 +69,7 @@ watch(
 </script>
 
 <template>
-  <Intro v-if="intro" v-bind="intro" />
-  <RowGrid :data="projects" :project="route.params.id" />
-  <Outro v-if="outro" v-bind="outro" />
+  <p>toto</p>
 </template>
 
 <style></style>
