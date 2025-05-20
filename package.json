@@ -17,7 +17,8 @@
     "gsap-bonus": "file:gsap-bonus.tgz",
     "imagesloaded": "^5.0.0",
     "sass-rem": "^3.0.0",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
