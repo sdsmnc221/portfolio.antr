@@ -1,13 +1,12 @@
 {
-    "version": 2,
-    "routes": [
+    "rewrites": [
         {
-            "src": "/preview/(.*)",
-            "dest": "/index.html"
+            "source": "/preview/:id",
+            "destination": "/index.html"
         },
         {
-            "src": "/(.*)",
-            "dest": "/$1"
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ],
     "cleanUrls": true
