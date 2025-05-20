@@ -1,11 +1,11 @@
 {
     "rewrites": [
         {
-            "source": "/preview/:id",
+            "source": "/preview/:path*",
             "destination": "/index.html"
         },
         {
-            "source": "/(.*)",
+            "source": "/:path*",
             "destination": "/index.html"
         }
     ],

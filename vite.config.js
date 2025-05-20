@@ -11,8 +11,11 @@ export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
 
   return {
+    base: '/', // Explicitly set base URL
+
     server: {
       host: true,
+      historyApiFallback: true, // Add this for dev server SPA routing
     },
     plugins: [
       vue(),
@@ -40,6 +43,17 @@ export default defineConfig(({ command, mode }) => {
           additionalData: `
             @import "@/assets/scss/vars/index.scss";
           `.trim(),
+        },
+      },
+    },
+
+    build: {
+      outDir: 'dist',
+      ssr: false,
+      // Generate a single HTML that serves all routes
+      rollupOptions: {
+        output: {
+          manualChunks: undefined,
         },
       },
     },
