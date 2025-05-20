@@ -17,6 +17,7 @@ export default async function (data, prismic) {
     const description = await getDescription(id, client);
     const previewContent = prismic.asHTML(description);
     result.push({
+      uid: data.uid ?? null,
       previewTitle: data.title,
       previewImages: data.preview_images.map(({ cell_image }) => imageAdapter(cell_image)),
       previewContent,

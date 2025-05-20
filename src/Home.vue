@@ -1,0 +1,77 @@
+<script setup>
+import Intro from '@elements/Intro.vue';
+import RowGrid from '@modules/RowGrid/RowGrid.vue';
+import Outro from '@elements/Outro.vue';
+
+import projectsAdapter from '@utils/prismic/projectsAdapter';
+import introAdapter from '@utils/prismic/introAdapter';
+import outroAdapter from '@utils/prismic/outroAdapter';
+
+import { ref, watch } from 'vue';
+import { useSinglePrismicDocument, usePrismic } from '@prismicio/vue';
+
+import '@/assets/scss/global/index.scss';
+import { useRoute } from 'vue-router';
+
+const emits = defineEmits(['update:projects']);
+
+const route = useRoute();
+
+console.log(route.params, route.fullPath);
+
+const doc = ref(null);
+const projects = ref([]);
+const intro = ref(null);
+const outro = ref(null);
+
+const { data } = useSinglePrismicDocument('homepage', {
+  fetchLinks: [
+    'project.uid',
+    'project.title',
+    'project.row_images',
+    'project.preview_images',
+    'project.description',
+    'project.video',
+    'project.link',
+    'project.year',
+    'project.display_images',
+  ],
+});
+
+setTimeout(() => {
+  doc.value = data;
+}, 1000);
+
+const prismic = usePrismic();
+
+watch(doc, (newVal) => {
+  if (newVal.value && newVal.value.data) {
+    setTimeout(async () => {
+      projects.value = await projectsAdapter(newVal.value.data.projects, prismic);
+      intro.value = introAdapter(
+        newVal.value.data.body.find((slice) => slice.slice_type === 'intro'),
+        prismic
+      );
+      outro.value = outroAdapter(
+        newVal.value.data.body.find((slice) => slice.slice_type === 'outro'),
+        newVal.value.tags
+      );
+    }, 2400);
+  }
+});
+
+watch(
+  () => projects.value,
+  () => {
+    emits('update:projects', { projects: projects.value });
+  }
+);
+</script>
+
+<template>
+  <Intro v-if="intro" v-bind="intro" />
+  <RowGrid :data="projects" :project="route.params.id" />
+  <Outro v-if="outro" v-bind="outro" />
+</template>
+
+<style></style>
