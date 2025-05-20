@@ -52,14 +52,51 @@ watch(
     if (defaultActiveRow.value !== -1) {
       activeRow.value = defaultActiveRow.value;
       nextTick(() => {
-        setTimeout(() => {
-          const activeRowElement = [...document.querySelectorAll('.row')][activeRow.value];
+        new Promise((resolve) => {
+          setTimeout(() => {
+            const activeRowElement = [...document.querySelectorAll('.row')][activeRow.value];
 
-          if (activeRowElement) {
-            // programmatically click on activeRowElement
-            activeRowElement.click();
-          }
-        }, 1200);
+            if (activeRowElement) {
+              new Promise((resolveMouseenter) => {
+                // Add a one-time event listener that resolves when mouseenter is fully processed
+                activeRowElement.addEventListener(
+                  'mouseenter',
+                  () => {
+                    // Use small timeout to ensure event is fully processed
+                    setTimeout(resolveMouseenter, 50);
+                  },
+                  { once: true }
+                );
+
+                // Now dispatch the mouseenter event
+                activeRowElement.dispatchEvent(
+                  new MouseEvent('mouseenter', {
+                    view: window,
+                    bubbles: true,
+                    cancelable: true,
+                  })
+                );
+              });
+
+              resolve('ok');
+            } else {
+              resolve(null);
+            }
+          }, 1200);
+        })
+          .then((mouseEnterResult) => {
+            console.log(mouseEnterResult);
+            if (mouseEnterResult) {
+              const activeRowElement = [...document.querySelectorAll('.row')][activeRow.value];
+
+              if (activeRowElement) {
+                activeRowElement.click();
+              }
+            }
+          })
+          .catch((error) => {
+            console.error('Error in programmatic me/click sequence', error);
+          });
       });
     }
   },
