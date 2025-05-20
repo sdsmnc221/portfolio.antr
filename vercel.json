@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "routes": [
+        {
+            "src": "/preview/(.*)",
+            "dest": "/index.html"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/$1"
+        }
+    ],
+    "cleanUrls": true
+}
