@@ -1,4 +1,5 @@
 <script setup>
+import { Analytics } from '@vercel/analytics/vue';
 import Loader from '@elements/Loader.vue';
 
 import { ref } from 'vue';
@@ -15,6 +16,7 @@ const updateProjects = ({ projects: projectsFromComponents }) => {
 
 <template>
   <main>
+    <Analytics />
     <RouterView v-slot="{ Component }">
       <component :is="Component" @update:projects="updateProjects"></component>
     </RouterView>
